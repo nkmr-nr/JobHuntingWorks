@@ -15,8 +15,7 @@ private:
 		:pos(pos_)
 		, target(target_)
 		, rotateAngle(rotateAngle_)
-		, targetObj(nullptr)
-		, player(player_)
+		, targetObj(player_)
 		, isAttacking(false)
 	{
 		SetCameraNearFar(0.1f, 10000.0f);
@@ -44,25 +43,26 @@ public:
 		SetPositionAndTarget(pos, target);
 	}
 	void Update()override;				//更新
-	void SetPositionAndTarget(VECTOR pos_, VECTOR target_)//ターゲットのポジションからカメラのポジション設定
+
+	void SetPositionAndTarget(VECTOR pos_, VECTOR target_)
+		//ターゲットのポジションからカメラのポジション設定
 	{
 		pos = pos_;
 		target = target_;
 
 		SetCameraPositionAndTargetAndUpVec(pos, target, VGet(0, 1, 0));
 	}
-	void SetTarget(Objects* target_)
+	void SetTarget(Objects* target_)		//targetの設定
 	{
 		targetObj = target_;
 	}
 	void FinishCamera();
 private:
-	VECTOR pos;
-	VECTOR target;
-	VECTOR rotateAngle;
-	Objects* targetObj;
-	Objects* player;
-	bool isAttacking;
+	VECTOR pos;								//ポジション
+	VECTOR target;							//ターゲットのベクトル
+	VECTOR rotateAngle;					//回転角度
+	Objects* targetObj;						//ターゲット
+	bool isAttacking;							//Playerがアタック中か
 };
 
 #endif//#ifndef CAMERA_H_

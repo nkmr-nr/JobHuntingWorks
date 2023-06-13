@@ -41,8 +41,17 @@
     <Filter Include="ソース ファイル\Objects\Collider">
       <UniqueIdentifier>{38f5ed5b-7341-437a-80e1-02f334bbf03a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Camera">
+    <Filter Include="ソース ファイル\NonObjects">
+      <UniqueIdentifier>{d414d26d-31e4-4b2f-bbcc-b87bd10a9786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NonObjects\Camera">
       <UniqueIdentifier>{2b30ddc1-67d5-4b88-97c3-440b5ba87b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NonObjects\NonObjectsFactory">
+      <UniqueIdentifier>{c32d9ff1-ae43-44f0-8444-3f2e86bf2871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NonObjects\NonObjectsManager">
+      <UniqueIdentifier>{96770eaf-472d-45de-a004-1aa151012b38}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -95,7 +104,16 @@
       <Filter>ソース ファイル\Objects\Map</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\Camera.cpp">
-      <Filter>ソース ファイル\Camera</Filter>
+      <Filter>ソース ファイル\NonObjects\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Objects.cpp">
+      <Filter>ソース ファイル\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\NonObjectsManager.cpp">
+      <Filter>ソース ファイル\NonObjects\NonObjectsManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\NonObjectsFactory.cpp">
+      <Filter>ソース ファイル\NonObjects\NonObjectsFactory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +172,16 @@
       <Filter>ソース ファイル\Objects\Collider</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Camera.h">
-      <Filter>ソース ファイル\Camera</Filter>
+      <Filter>ソース ファイル\NonObjects\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\NonObjects.h">
+      <Filter>ソース ファイル\NonObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\NonObjectsManager.h">
+      <Filter>ソース ファイル\NonObjects\NonObjectsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\NonObjectsFactory.h">
+      <Filter>ソース ファイル\NonObjects\NonObjectsFactory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

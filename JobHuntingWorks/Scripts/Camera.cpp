@@ -6,7 +6,7 @@
 
 void Camera::Init()
 {
-	SetTarget(target);
+	SetTarget(targetObj);
 }
 
 void Camera::Update()
@@ -25,7 +25,7 @@ void Camera::Update()
 	{
 		isAttacking = false;
 	}
-	if (CheckHitKey(KEY_INPUT_W) && isAttacking == false)
+	if ( isAttacking == false)
 	{
 
 		float speed = 5;

@@ -27,6 +27,9 @@
     <ClCompile Include="Scripts\EnemyAnimation.cpp" />
     <ClCompile Include="Scripts\GameScene.cpp" />
     <ClCompile Include="Scripts\Map.cpp" />
+    <ClCompile Include="Scripts\NonObjectsFactory.cpp" />
+    <ClCompile Include="Scripts\NonObjectsManager.cpp" />
+    <ClCompile Include="Scripts\Objects.cpp" />
     <ClCompile Include="Scripts\ObjectsFactory.cpp" />
     <ClCompile Include="Scripts\Main.cpp" />
     <ClCompile Include="Scripts\ObjectsManager.cpp" />
@@ -47,6 +50,9 @@
     <ClInclude Include="Scripts\EnemyAnimation.h" />
     <ClInclude Include="Scripts\GameScene.h" />
     <ClInclude Include="Scripts\Map.h" />
+    <ClInclude Include="Scripts\NonObjects.h" />
+    <ClInclude Include="Scripts\NonObjectsFactory.h" />
+    <ClInclude Include="Scripts\NonObjectsManager.h" />
     <ClInclude Include="Scripts\ObjectsFactory.h" />
     <ClInclude Include="Scripts\Objects.h" />
     <ClInclude Include="Scripts\ObjectsManager.h" />

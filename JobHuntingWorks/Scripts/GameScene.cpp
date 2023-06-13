@@ -6,6 +6,10 @@
 #include"ObjectsManager.h"
 #include"Objects.h"
 
+#include"NonObjects.h"
+#include"NonObjectsManager.h"
+#include"NonObjectsFactory.h"
+
 #include"Camera.h"
 
 void GameScene::LatestSceneType()
@@ -29,9 +33,12 @@ void GameScene::LatestSceneType()
 
 void GameScene::Init()
 {
-	Objects* playerInstance = ObjectsFactory::Instance()->CreatePlayer(VGet(0, 0, 0), VGet(0, 0, 0), VGet(1, 1, 1), -1, -1, 10);
+	Objects* playerInstance = ObjectsFactory::Instance()->CreatePlayer(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0.4f, 0.4f, 0.4f), -1, -1, 10);
 	ObjectsManager::Instance()->Entry(playerInstance);
 	ObjectsManager::Instance()->Init();
+
+	NonObjectsManager::Instance()->Entry(NonObjectsFactory::Instance()->CreateCamera(playerInstance));
+	NonObjectsManager::Instance()->Init();
 
 	sceneType = SceneType::Update;
 }
@@ -39,6 +46,7 @@ void GameScene::Init()
 void GameScene::Update()
 {
 	ObjectsManager::Instance()->Update();
+	NonObjectsManager::Instance()->Update();
 	ObjectsManager::Instance()->DeleteOnes();
 }
 
