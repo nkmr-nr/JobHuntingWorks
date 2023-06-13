@@ -60,7 +60,7 @@ void ObjectsManager::DeleteOnes()
 			itr++;
 		}
 	}
-	*/	
+	*/
 }
 
 void ObjectsManager::DeleteAll()

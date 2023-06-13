@@ -32,6 +32,7 @@ public:
 		static Camera pInstance(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0, 0, 0), player_);
 		return &pInstance;
 	}
+	void Init()override;					//初期化
 	void SetPosition(VECTOR pos_)//カメラのポジション情報
 	{
 		pos = pos_;
@@ -42,7 +43,7 @@ public:
 		target = target_;
 		SetPositionAndTarget(pos, target);
 	}
-	void UpdateCamera();//カメラの更新
+	void Update()override;				//更新
 	void SetPositionAndTarget(VECTOR pos_, VECTOR target_)//ターゲットのポジションからカメラのポジション設定
 	{
 		pos = pos_;
@@ -54,7 +55,6 @@ public:
 	{
 		targetObj = target_;
 	}
-
 	void FinishCamera();
 private:
 	VECTOR pos;

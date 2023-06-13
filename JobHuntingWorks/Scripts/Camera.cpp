@@ -3,7 +3,13 @@
 #include<math.h>
 #include"Player.h"
 
-void Camera::UpdateCamera()
+
+void Camera::Init()
+{
+	SetTarget(target);
+}
+
+void Camera::Update()
 {
 	VECTOR target_pos = VGet(0, 0, 0);
 	if (targetObj != nullptr)
