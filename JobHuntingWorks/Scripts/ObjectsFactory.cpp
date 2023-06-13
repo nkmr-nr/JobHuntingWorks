@@ -10,3 +10,8 @@ Objects* ObjectsFactory::CreateEnemy(VECTOR pos_, VECTOR rad_, VECTOR scale_, in
 {
 	return nullptr;
 }
+
+Objects* ObjectsFactory::CreateMap(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_)
+{
+	return new Map(pos_,rotateDegree_,scale_,modelHandle_);
+}

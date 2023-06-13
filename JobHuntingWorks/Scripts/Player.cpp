@@ -9,6 +9,7 @@ int g_BoxHandle = -1;
 void Player::Init()
 {
 	modelHandle = MV1LoadModel("Res/Warrior.mv1");
+	stageHandle = MV1LoadModel("Res/Island/Island.mv1");
 	playerAnim->Init();
 	//デバッグ用
 #ifdef DEBUG_COLLISION
@@ -46,11 +47,12 @@ void Player::Update()
 	{
 		rotateDegree.y -= rotateSpeed;
 	}
-
 	// ワールド行列の更新
 	UpdateMatrix();
 	//プレイヤーアニメーションの更新
 	playerAnim->Update();
+	//ステージとの当たり判定
+	OnCollisionStage();
 }
 
 void Player::UpdateMatrix()

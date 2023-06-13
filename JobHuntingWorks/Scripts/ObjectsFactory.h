@@ -4,6 +4,7 @@
 
 #include"Objects.h"
 #include"Player.h"
+#include"Map.h"
 
 class ObjectsFactory
 {
@@ -25,6 +26,7 @@ public:
 
 	Objects* CreatePlayer(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_,int stageHandle_, int healthPoint_);														//PlayerÇçÏÇÈ
 	Objects* CreateEnemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_,int healthPoint_);													//EnemyÇçÏÇÈ
+	Objects* CreateMap(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_);
 };
 
 #endif//#define FACTORY_H_
