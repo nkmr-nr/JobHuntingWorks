@@ -24,6 +24,7 @@ public:
 	void Draw()override;			//•`‰æ
 private:
 	StateBase* state;					//Enemy‚Ìó‘Ô
+	int counter;							//wait‚Ìcounter
 };
 
 #endif//#define ENEMMY_H_

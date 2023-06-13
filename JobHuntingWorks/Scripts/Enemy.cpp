@@ -12,12 +12,12 @@ void Enemy::Init()
 
 void Enemy::Update()
 {
-	StateBase* before = status;
-	StateBase* result = status->Update(this);
+	StateBase* before = state;
+	StateBase* result = state->Update(this);
 	if (before != result)
 	{
-		status = result;
-		waitCounter = 0;
+		state = result;
+		counter = 0;
 	}
 	OnCollisionStage();
 }
