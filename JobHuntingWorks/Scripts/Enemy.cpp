@@ -1,3 +1,4 @@
+
 #include "Enemy.h"
 
 void Enemy::Init()
@@ -11,7 +12,13 @@ void Enemy::Init()
 
 void Enemy::Update()
 {
-	state->Update(this);
+	StateBase* before = status;
+	StateBase* result = status->Update(this);
+	if (before != result)
+	{
+		status = result;
+		waitCounter = 0;
+	}
 	OnCollisionStage();
 }
 
