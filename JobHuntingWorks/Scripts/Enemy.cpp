@@ -8,6 +8,8 @@ void Enemy::Init()
 	{
 		DxLib_End();
 	}
+	//EnemyAnimationの初期化
+	enemyAnim->Init();
 }
 
 void Enemy::Update()
@@ -19,6 +21,9 @@ void Enemy::Update()
 		state = result;
 		counter = 0;
 	}
+	//EnemyAnimationの更新
+	enemyAnim->Update();
+	//ステージの当たり判定
 	OnCollisionStage();
 }
 
@@ -28,4 +33,6 @@ void Enemy::Draw()
 	MV1SetScale(modelHandle,scale);
 	MV1SetRotationXYZ(modelHandle, rotateDegree);
 	MV1DrawModel(modelHandle);
+	//EnemyAnimationの描画
+	enemyAnim->Draw();
 }

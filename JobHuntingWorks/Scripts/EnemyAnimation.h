@@ -4,10 +4,12 @@
 
 #include"Objects.h"
 
+class Enemy;
+
 class EnemyAnimation
 {
 private:
-	EnemyAnimation(Objects* enemy_)
+	EnemyAnimation(Enemy* enemy_)
 		:enemy(enemy_)
 		, enemyAnimationKind(EnemyAnimationKind::EnemyIdle)
 		, animTimer(0.0f)
@@ -17,9 +19,9 @@ public:
 	~EnemyAnimation()
 	{
 	}
-	static EnemyAnimation* Instance(Objects* player_)//EnemyAnimationのインスタンス
+	static EnemyAnimation* Instance(Enemy* enemy_)//EnemyAnimationのインスタンス
 	{
-		static EnemyAnimation pInstance(player_);
+		static EnemyAnimation pInstance(enemy_);
 		return &pInstance;
 	}
 public:
@@ -53,7 +55,7 @@ private:
 		{6,0},												//ダメージモーションの情報
 	};
 private:
-	Objects* enemy;											//Enemy情報
+	Enemy* enemy;											//Enemy情報
 	EnemyAnimationKind enemyAnimationKind;	//Enemyのアニメションの種類
 	float animTimer;											//アニメーションの時間
 };

@@ -1,5 +1,6 @@
 
 #include "EnemyAnimation.h"
+#include"Enemy.h"
 
 void EnemyAnimation::Init()
 {
@@ -13,31 +14,10 @@ void EnemyAnimation::Init()
 
 void EnemyAnimation::Update()
 {
-	if (CheckHitKey(KEY_INPUT_SPACE))
+	if (enemyAnimationKind != EnemyAnimationKind::EnemyIdle)
 	{
-		int counter = 0;
-		if (enemyAnimationKind != EnemyAnimationKind::EnemyAttack)
-		{
-			enemyAnimationKind = EnemyAnimationKind::EnemyAttack;
-			animTimer = 0.0f;
-		}
-	}
-	else if (CheckHitKey(KEY_INPUT_W))
-	{
-		if (enemyAnimationKind != EnemyAnimationKind::EnemyRun)
-		{
-			enemyAnimationKind = EnemyAnimationKind::EnemyRun;
-			animTimer = 0.0f;
-		}
-	}
-
-	else
-	{
-		if (enemyAnimationKind != EnemyAnimationKind::EnemyIdle)
-		{
-			enemyAnimationKind = EnemyAnimationKind::EnemyIdle;
-			animTimer = 0.0f;
-		}
+		enemyAnimationKind = EnemyAnimationKind::EnemyIdle;
+		animTimer = 0.0f;
 	}
 	animTimer++;
 	if (animTimer >= enemyAnimInfo[(int)enemyAnimationKind].animationCount)
