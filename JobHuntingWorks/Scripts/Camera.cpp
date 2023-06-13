@@ -39,15 +39,15 @@ void Camera::Update()
 		}
 
 		VECTOR vec = VGet(0, 0, 0);
-		float radY = rotateAngle.y * (DX_PI / 180);//単位円にして計算できるようにしてる
+		float radY = rotateAngle.y * (DX_PI / 180);
 
-		vec.x = sinf(radY);//向きベクトルのx
-		vec.z = cosf(radY);//向きベクトルのz
+		vec.x = sinf(radY);
+		vec.z = cosf(radY);
 
-		float distance = 200.0f;//範囲設定
-		target_pos.y += 40.0f;//カメラのoffset
+		float distance = 200.0f;
+		target_pos.y += 40.0f;
 
-		vec = VScale(vec, distance);//見える範囲の計算
+		vec = VScale(vec, distance);
 
 		vec.y = 10.0f;
 
