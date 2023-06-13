@@ -1,7 +1,8 @@
 
 #include "NonObjectsFactory.h"
+#include"Camera.h"
 
-Camera* NonObjectsFactory::CreateCamera(Objects* target)
+NonObjects* NonObjectsFactory::CreateCamera(Objects* target)
 {
 	return Camera::Instance(target);
 }
