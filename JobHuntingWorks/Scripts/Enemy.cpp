@@ -7,7 +7,7 @@ void Enemy::Init()
 
 void Enemy::Update()
 {
-	state->Update();
+	state->Update(this);
 }
 
 void Enemy::Draw()
