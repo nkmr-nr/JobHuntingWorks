@@ -41,6 +41,7 @@ public:
 	{
 		return isActive;
 	}
+	void OnCollisionStage();		//オブジェクトとステージの当たり判定
 protected:
 	bool isActive;						//生存してるか
 	VECTOR pos;						//ポジション
