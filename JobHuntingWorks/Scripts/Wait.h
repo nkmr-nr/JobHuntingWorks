@@ -22,11 +22,7 @@ public:
 		static Wait pInstance;
 		return &pInstance;
 	}
-	void Update(Enemy*enemy)override;
-	EnemyState GetEnemyState()override	//Waitó‘Ô‚ğ•Ô‚·ŠÖ”
-	{
-		return EnemyState::WaitState;
-	}
+	StateBase* Update(Enemy*enemy)override;
 };
 
 #endif//#define STATE_WAIT_H_

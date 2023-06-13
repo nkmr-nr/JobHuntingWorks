@@ -2,6 +2,7 @@
 #include "Chase.h"
 #include"Enemy.h"
 
-void Chase::Update(Enemy* enemy)
+StateBase* Chase::Update(Enemy* enemy)
 {
+	return nullptr;
 }

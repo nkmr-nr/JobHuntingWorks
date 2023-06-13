@@ -2,6 +2,7 @@
 #include "Attack.h"
 #include"Enemy.h"
 
-void Attack::Update(Enemy* enemy)
+StateBase* Attack::Update(Enemy* enemy)
 {
+	return nullptr;
 }

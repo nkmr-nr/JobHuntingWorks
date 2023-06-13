@@ -1,7 +1,9 @@
 
 #include "Wait.h"
 #include"Enemy.h"
+#include"StateBase.h"
 
-void Wait::Update(Enemy* enemy)
+StateBase* Wait::Update(Enemy* enemy)
 {
+	return nullptr;
 }

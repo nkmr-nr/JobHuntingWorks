@@ -17,16 +17,12 @@ public:
 	{
 
 	}
-	static Attack* Instance()					//Attack状態のインスタンス
+	static Attack* Instance()									//Attack状態のインスタンス
 	{
 		static Attack pInstance;
 		return &pInstance;
 	}
-	void Update(Enemy*enemy)override;						//更新処理
-	EnemyState GetEnemyState()override	//Attack状態を返す関数
-	{
-		return EnemyState::AttackState;
-	}
+	StateBase* Update(Enemy*enemy)override;			//更新処理
 };
 
 #endif//#define STATE_ATTACK_H_

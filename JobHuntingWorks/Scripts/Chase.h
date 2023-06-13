@@ -22,11 +22,7 @@ public:
 		static Chase pInstance;
 		return &pInstance;
 	}
-	void Update(Enemy*enemy)override;
-	EnemyState GetEnemyState()override//Chaseó‘Ô‚ğ•Ô‚·ŠÖ”
-	{
-		return EnemyState::ChaseState;
-	}
+	StateBase* Update(Enemy*enemy)override;
 };
 
 #endif//#define STATE_CHASE_H_

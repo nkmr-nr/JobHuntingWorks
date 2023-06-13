@@ -23,10 +23,9 @@ public:
 	{
 
 	}
-	virtual void Update(Enemy*enemy) = 0;							//更新処理
-	virtual EnemyState GetEnemyState() = 0;	//Enemyの状態取得関数
+	virtual StateBase* Update(Enemy* enemy) = 0;			//更新処理
 protected:
-	EnemyState state;										//Enemyの状態
+	EnemyState state;														//Enemyの状態
 };
 
 #endif//#define STATE_BASE_H_

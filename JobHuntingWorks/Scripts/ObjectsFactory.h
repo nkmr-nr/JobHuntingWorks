@@ -5,6 +5,7 @@
 #include"Objects.h"
 #include"Player.h"
 #include"Map.h"
+#include"Enemy.h"
 
 class ObjectsFactory
 {

@@ -35,6 +35,7 @@ void GameScene::Init()
 {
 	Objects* playerInstance = ObjectsFactory::Instance()->CreatePlayer(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0.4f, 0.4f, 0.4f), -1, -1, 10);
 	ObjectsManager::Instance()->Entry(playerInstance);
+	ObjectsManager::Instance()->Entry(ObjectsFactory::Instance()->CreateEnemy(VGet(0, 0, 0), VGet(1, 1, 1), VGet(0, 0, 0), -1, -1, 0));
 	ObjectsManager::Instance()->Entry(ObjectsFactory::Instance()->CreateMap(VGet(0, 0, 0), VGet(0, 0, 0), VGet(1, 1, 1), -1));
 	ObjectsManager::Instance()->Init();
 
