@@ -5,5 +5,6 @@
 
 StateBase* Wait::Update(Enemy* enemy)
 {
+	enemy->SearchRange();
 	return this;
 }

@@ -6,9 +6,9 @@ Objects* ObjectsFactory::CreatePlayer(VECTOR pos_, VECTOR rad_, VECTOR scale_, i
 	return new Player(pos_,rad_,scale_,modelHandle_,stageHandle_,healthPoint_);
 }
 
-Objects* ObjectsFactory::CreateEnemy(VECTOR pos_, VECTOR rad_, VECTOR scale_, int modelHandle_, int stageHandle_,int healthPoint_)
+Objects* ObjectsFactory::CreateEnemy(VECTOR pos_, VECTOR rad_, VECTOR scale_, int modelHandle_, int stageHandle_,int healthPoint_,Objects*player_)
 {
-	return new Enemy(pos_, rad_, scale_, modelHandle_, stageHandle_, healthPoint_);
+	return new Enemy(pos_, rad_, scale_, modelHandle_, stageHandle_, healthPoint_,player_);
 }
 
 Objects* ObjectsFactory::CreateMap(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_)
