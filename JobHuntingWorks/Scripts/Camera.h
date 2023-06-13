@@ -4,10 +4,11 @@
 
 #include <DxLib.h>
 #include"Objects.h"
+#include"NonObjects.h"
 
 class Player;
 
-class Camera
+class Camera : public NonObjects
 {
 private:
 	Camera(VECTOR pos_, VECTOR target_, VECTOR rotateAngle_, Objects* player_)
@@ -19,11 +20,7 @@ private:
 		, isAttacking(false)
 	{
 		SetCameraNearFar(0.1f, 10000.0f);
-		SetCameraPositionAndTargetAndUpVec(
-			pos,
-			target,
-			VGet(0, 1, 0)
-		);
+		SetCameraPositionAndTargetAndUpVec(pos,target,VGet(0, 1, 0));
 	}
 public:
 	~Camera()
