@@ -22,7 +22,7 @@ public:
 		static Attack pInstance;
 		return &pInstance;
 	}
-	StateBase* Update(Enemy*enemy)override;			//XVˆ—
+	StateBase* Update(Enemy*enemy)override;			//Enemy‚Ìó‘Ô‚ğ•Ô‚·
 };
 
 #endif//#define STATE_ATTACK_H_

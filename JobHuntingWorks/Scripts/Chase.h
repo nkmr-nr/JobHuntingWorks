@@ -17,12 +17,12 @@ public:
 	{
 
 	}
-	static Chase* Instance()					//Attack状態のインスタンス
+	static Chase* Instance()							//Attack状態のインスタンス
 	{
 		static Chase pInstance;
 		return &pInstance;
 	}
-	StateBase* Update(Enemy*enemy)override;
+	StateBase* Update(Enemy*enemy)override;	//Enemyの状態を返す
 };
 
 #endif//#define STATE_CHASE_H_

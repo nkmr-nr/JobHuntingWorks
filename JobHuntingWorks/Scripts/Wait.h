@@ -17,12 +17,12 @@ public:
 	{
 
 	}
-	static Wait* Instance()							//Wait状態のインスタンス
+	static Wait* Instance()								//Wait状態のインスタンス
 	{
 		static Wait pInstance;
 		return &pInstance;
 	}
-	StateBase* Update(Enemy*enemy)override;
+	StateBase* Update(Enemy*enemy)override;	//Enemyの状態を返す
 };
 
 #endif//#define STATE_WAIT_H_

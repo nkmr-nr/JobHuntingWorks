@@ -2,9 +2,13 @@
 #include "Wait.h"
 #include"Enemy.h"
 #include"StateBase.h"
+#include"Chase.h"
 
 StateBase* Wait::Update(Enemy* enemy)
 {
-	enemy->SearchRange();
+	if (enemy->SearchRange() == true)
+	{
+		return Chase::Instance();
+	}
 	return this;
 }
