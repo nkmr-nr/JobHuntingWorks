@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects">
+      <UniqueIdentifier>{abdedcc9-6ecc-4e25-8543-3ce41b72feeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\ObjectsManager">
+      <UniqueIdentifier>{1dd8006f-2604-41a4-9456-d9e2ed31a0a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Player">
+      <UniqueIdentifier>{8c83b19e-163f-4e38-babd-69e1a821fbf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scenes">
+      <UniqueIdentifier>{6f31ad15-61bf-44cc-8712-d515ed75dfa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Factory">
+      <UniqueIdentifier>{67726dd6-44ec-4039-8553-2ca75799f575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scenes\SceneKind">
+      <UniqueIdentifier>{0ba8c17d-01dc-4498-8f39-25751241d7c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Enemy">
+      <UniqueIdentifier>{d845015b-4e2a-4fbf-9232-f86c62e27d83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Enemy\EnemyState">
+      <UniqueIdentifier>{1446b403-4a24-44a3-9135-417b0b1a64f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Map">
+      <UniqueIdentifier>{bd0e45c8-3444-4f57-9a92-94df675f2171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Player\PlayerAnimation">
+      <UniqueIdentifier>{45d5996c-7165-4546-bf34-f79587b1afae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Enemy\EnemyAnimation">
+      <UniqueIdentifier>{acc9666e-c88a-44c8-b356-ef8f82a9def1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Collider">
+      <UniqueIdentifier>{38f5ed5b-7341-437a-80e1-02f334bbf03a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Camera">
+      <UniqueIdentifier>{2b30ddc1-67d5-4b88-97c3-440b5ba87b69}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Scripts\Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\ObjectsManager.cpp">
+      <Filter>ソース ファイル\Objects\ObjectsManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\ObjectsFactory.cpp">
+      <Filter>ソース ファイル\Objects\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Player.cpp">
+      <Filter>ソース ファイル\Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\SceneBase.cpp">
+      <Filter>ソース ファイル\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\SceneManager.cpp">
+      <Filter>ソース ファイル\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\TitleScene.cpp">
+      <Filter>ソース ファイル\Scenes\SceneKind</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\EndScene.cpp">
+      <Filter>ソース ファイル\Scenes\SceneKind</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\GameScene.cpp">
+      <Filter>ソース ファイル\Scenes\SceneKind</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Enemy.cpp">
+      <Filter>ソース ファイル\Objects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Attack.cpp">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Chase.cpp">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Wait.cpp">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\PlayerAnimation.cpp">
+      <Filter>ソース ファイル\Objects\Player\PlayerAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\EnemyAnimation.cpp">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Map.cpp">
+      <Filter>ソース ファイル\Objects\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Camera.cpp">
+      <Filter>ソース ファイル\Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Scripts\ObjectsManager.h">
+      <Filter>ソース ファイル\Objects\ObjectsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\ObjectsFactory.h">
+      <Filter>ソース ファイル\Objects\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Player.h">
+      <Filter>ソース ファイル\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\SceneBase.h">
+      <Filter>ソース ファイル\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\SceneManager.h">
+      <Filter>ソース ファイル\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\TitleScene.h">
+      <Filter>ソース ファイル\Scenes\SceneKind</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\EndScene.h">
+      <Filter>ソース ファイル\Scenes\SceneKind</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\GameScene.h">
+      <Filter>ソース ファイル\Scenes\SceneKind</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Enemy.h">
+      <Filter>ソース ファイル\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Wait.h">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Attack.h">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Chase.h">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\StateBase.h">
+      <Filter>ソース ファイル\Objects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\PlayerAnimation.h">
+      <Filter>ソース ファイル\Objects\Player\PlayerAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\EnemyAnimation.h">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Objects.h">
+      <Filter>ソース ファイル\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Map.h">
+      <Filter>ソース ファイル\Objects\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Collider.h">
+      <Filter>ソース ファイル\Objects\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Camera.h">
+      <Filter>ソース ファイル\Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
