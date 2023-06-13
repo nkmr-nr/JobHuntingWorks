@@ -12,6 +12,7 @@ public:
 		WaitState,
 		AttackState,
 		ChaseState,
+		MoveState,
 	};
 public:
 	StateBase(EnemyState state_)

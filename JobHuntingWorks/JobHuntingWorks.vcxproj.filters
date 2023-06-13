@@ -115,6 +115,9 @@
     <ClCompile Include="Scripts\NonObjectsFactory.cpp">
       <Filter>ソース ファイル\NonObjects\NonObjectsFactory</Filter>
     </ClCompile>
+    <ClCompile Include="Scripts\Move.cpp">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scripts\ObjectsManager.h">
@@ -182,6 +185,9 @@
     </ClInclude>
     <ClInclude Include="Scripts\NonObjectsFactory.h">
       <Filter>ソース ファイル\NonObjects\NonObjectsFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Move.h">
+      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
