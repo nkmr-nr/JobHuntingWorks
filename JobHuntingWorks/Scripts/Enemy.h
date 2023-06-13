@@ -12,6 +12,7 @@ public:
 	Enemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_)
 		:Objects(pos_, rotateDegree_,scale_,modelHandle_,stageHandle_,healthPoint_)
 		,state(Wait::Instance())
+		,counter(0)
 	{
 
 	}

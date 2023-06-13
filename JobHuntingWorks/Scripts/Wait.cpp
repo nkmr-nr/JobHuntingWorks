@@ -5,5 +5,5 @@
 
 StateBase* Wait::Update(Enemy* enemy)
 {
-	return nullptr;
+	return this;
 }

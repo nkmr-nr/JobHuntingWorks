@@ -4,5 +4,5 @@
 
 StateBase* Attack::Update(Enemy* enemy)
 {
-	return nullptr;
+	return this;
 }
