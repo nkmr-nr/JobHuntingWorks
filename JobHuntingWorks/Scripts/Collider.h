@@ -4,6 +4,22 @@
 
 #include "DxLib.h"
 
+struct RectInfomation
+{
+	RectInfomation(VECTOR* pos_, VECTOR* size_)
+		:pos(pos_ != nullptr ? *pos_ : VGet(0, 0, 0))
+		, rectSize(size_ != nullptr ? *size_ : VGet(0, 0, 0))
+	{
+	}
+	RectInfomation(VECTOR& pos_, VECTOR& size_)
+		:pos(pos_)
+		, rectSize(size_)
+	{
+	}
+	VECTOR pos;
+	VECTOR rectSize;
+};
+
 struct OBBCollider
 {
 	static const int MaxVertex = 8;		//í∏ì_ÇÃêî

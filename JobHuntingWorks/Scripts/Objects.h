@@ -45,7 +45,7 @@ public:
 protected:
 	bool isActive;						//生存してるか
 	VECTOR pos;						//ポジション
-	VECTOR rotateDegree;						//角度
+	VECTOR rotateDegree;		//角度
 	VECTOR scale;					//大きさ
 	int modelHandle;					//画像ハンドル
 	int stageHandle;					//ステージとの当たり判定用
