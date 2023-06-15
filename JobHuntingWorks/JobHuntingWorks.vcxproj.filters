@@ -53,6 +53,9 @@
     <Filter Include="ソース ファイル\NonObjects\NonObjectsManager">
       <UniqueIdentifier>{96770eaf-472d-45de-a004-1aa151012b38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Objects\Collision">
+      <UniqueIdentifier>{bb23fb94-e618-4c69-9db3-97e0f244504d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scripts\Main.cpp">
@@ -117,6 +120,9 @@
     </ClCompile>
     <ClCompile Include="Scripts\Move.cpp">
       <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Collision.cpp">
+      <Filter>ソース ファイル\Objects\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="Scripts\Move.h">
       <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Collision.h">
+      <Filter>ソース ファイル\Objects\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

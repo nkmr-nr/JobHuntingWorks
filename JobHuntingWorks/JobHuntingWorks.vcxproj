@@ -22,6 +22,7 @@
     <ClCompile Include="Scripts\Attack.cpp" />
     <ClCompile Include="Scripts\Camera.cpp" />
     <ClCompile Include="Scripts\Chase.cpp" />
+    <ClCompile Include="Scripts\Collision.cpp" />
     <ClCompile Include="Scripts\EndScene.cpp" />
     <ClCompile Include="Scripts\Enemy.cpp" />
     <ClCompile Include="Scripts\EnemyAnimation.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="Scripts\Camera.h" />
     <ClInclude Include="Scripts\Chase.h" />
     <ClInclude Include="Scripts\Collider.h" />
+    <ClInclude Include="Scripts\Collision.h" />
     <ClInclude Include="Scripts\EndScene.h" />
     <ClInclude Include="Scripts\Enemy.h" />
     <ClInclude Include="Scripts\EnemyAnimation.h" />

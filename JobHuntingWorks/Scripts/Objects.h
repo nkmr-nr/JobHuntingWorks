@@ -33,6 +33,10 @@ public:
 	{
 		return rotateDegree;
 	}
+	VECTOR GetScale()
+	{
+		return scale;
+	}
 	int GetModelHandle()			//オブジェクトのモデル情報
 	{
 		return modelHandle;
