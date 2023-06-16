@@ -33,14 +33,6 @@ public:
 	{
 
 	}
-	VECTOR GetPos()
-	{
-		return pos;
-	}
-	int GetModelHandle()
-	{
-		return modelHandle;
-	}
 	void Init();
 	void Update();
 	void UpdateMatrix();
