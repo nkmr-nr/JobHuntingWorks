@@ -38,12 +38,12 @@ bool Collision::OnCollisionRectAndRect()
 
 bool Collision::OnCollisionOBBAndRect()
 {
-	VECTOR vec = VSub(player->GetPos(), rectInfo01->pos);
+	VECTOR vec = VSub(player->GetPos(), enemy->GetPos());
 
 	vec.x = sqrtf(vec.x);
 	vec.z = sqrtf(vec.z);
 
-	VECTOR size = VAdd(player->GetScale(), rectInfo01->rectSize);
+	VECTOR size = VAdd(player->GetScale(), enemy->GetScale());
 	size.x = size.x / 2.0f;
 	size.z = size.z / 2.0f;
 
