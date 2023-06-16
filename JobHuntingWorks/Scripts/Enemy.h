@@ -28,7 +28,7 @@ public:
 	void Init()override;						//‰Šú‰»
 	void Update()override;					//XV
 	void Draw()override;					//•`‰æ
-	bool SearchRange();	//õ“G”ÍˆÍ
+	bool IsFound();	//õ“G”ÍˆÍ
 	int GetCounter()
 	{
 		counter++;

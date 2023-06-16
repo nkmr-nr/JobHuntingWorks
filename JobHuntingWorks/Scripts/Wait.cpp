@@ -12,7 +12,7 @@ StateBase* Wait::Update(Enemy* enemy)
 	{
 		return Move::Instance();
 	}
-	if (enemy->SearchRange() == true)
+	if (enemy->IsFound() == true)
 	{
 		return Chase::Instance();
 	}

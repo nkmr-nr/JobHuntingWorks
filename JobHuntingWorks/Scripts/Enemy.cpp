@@ -39,7 +39,7 @@ void Enemy::Draw()
 	enemyAnim->Draw();
 }
 
-bool Enemy::SearchRange()
+bool Enemy::IsFound()
 {
 	float rad = rotateDegree.y * DX_PI / 180.0f;
 
