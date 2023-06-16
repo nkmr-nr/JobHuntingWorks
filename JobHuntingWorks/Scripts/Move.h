@@ -26,11 +26,11 @@ public:
 		static Move pInstance;
 		return &pInstance;
 	}
-	StateBase* Update(Enemy* enemy)override;			//Enemyの状態を返す
+	StateBase* Update(Enemy* enemy)override;		//Enemyの状態を返す
 private:
-	VECTOR moveVec;
-	int degree;
-	bool isDecision;
+	VECTOR moveVec;										//ベクトル
+	int degree;													//角度
+	bool isDecision;											//角度が決定したか
 };
 
 #endif//#define MOVE_STATE_H_
