@@ -29,7 +29,7 @@ public:
 	{
 		return pos;
 	}
-	VECTOR GetRadius()			//オブジェクトの角度
+	VECTOR GetRotateAngle()			//オブジェクトの角度
 	{
 		return rotateDegree;
 	}

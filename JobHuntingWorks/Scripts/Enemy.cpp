@@ -69,3 +69,18 @@ bool Enemy::IsFound()
 		return true;
 	}
 }
+
+VECTOR Enemy::GetTargetDerectionXZ()
+{
+	VECTOR direction = VSub(player->GetPos(), pos);
+	direction.y = 0;
+
+	float length = sqrtf((direction.x * direction.x) + (direction.z * direction.z));
+
+	if (length > 0)
+	{
+		direction.x /= length;
+		direction.z /= length;
+	}
+	return direction;
+}
