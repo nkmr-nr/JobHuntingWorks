@@ -9,6 +9,7 @@ void Collision::Init()
 
 void Collision::Update()
 {
+
 }
 
 void Collision::Draw()
