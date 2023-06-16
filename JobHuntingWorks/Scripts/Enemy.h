@@ -27,35 +27,35 @@ public:
 	{
 
 	}
-	void Init()override;						//初期化
-	void Update()override;					//更新
-	void Draw()override;					//描画
-	bool IsFound();	//索敵範囲
-	int GetCounter()
+	void Init()override;										//初期化
+	void Update()override;									//更新
+	void Draw()override;									//描画
+	bool IsFound();											//索敵範囲
+	int GetCounter()											//カウントを増やす
 	{
 		counter++;
 		return counter;
 	}
-	void MoveVec(VECTOR  moveVec_)
+	void MoveVec(VECTOR  moveVec_)				//動く
 	{
 		float length = sqrtf((moveVec_.x * moveVec_.x) + (moveVec_.z * moveVec_.z));
 		pos = VAdd(pos, moveVec_);
 	}
-	VECTOR GetTargetDerectionXZ();
+	VECTOR GetTargetDerectionXZ();				//XZ軸の回転
 	void SetMoveVec(VECTOR derection)
 	{
 		moveVec = derection;
 	}
-	float GetRotateDegree_Y(float rotateDegree_Y)
+	float GetRotateDegree_Y(float rotateDegree_Y)	//Y軸の所得
 	{
 		return rotateDegree.y = rotateDegree_Y;
 	}
 private:
-	StateBase* state;							//Enemyの状態
-	int counter;									//waitのcounter
-	EnemyAnimation* enemyAnim;		//Enemyのアニメーション
-	Objects* player;							//索敵用
-	VECTOR moveVec;						//移動ベクトル
+	StateBase* state;											//Enemyの状態
+	int counter;													//waitのcounter
+	EnemyAnimation* enemyAnim;						//Enemyのアニメーション
+	Objects* player;											//索敵用
+	VECTOR moveVec;										//移動ベクトル
 };
 
 #endif//#define ENEMMY_H_
