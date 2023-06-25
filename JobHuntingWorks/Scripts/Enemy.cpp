@@ -6,6 +6,7 @@
 void Enemy::Init()
 {
 	modelHandle = MV1LoadModel("Res/Monk.mv1");
+	stageHandle = MV1LoadModel("Res/Island/Island.mv1");
 	if (modelHandle == -1)
 	{
 		DxLib_End();
@@ -41,32 +42,29 @@ void Enemy::Draw()
 
 bool Enemy::IsFound()
 {
-	float rad = rotateDegree.y * DX_PI / 180.0f;
+	float rad = rotateDegree.y * (DX_PI / 180);
 
 	VECTOR direction = VGet(0, 0, 0);
+	direction.x = -sinf(rad);
+	direction.z = -cosf(rad);
 
-	direction.x = sinf(rad);
-	direction.z = cosf(rad);
+	VECTOR target = VSub(player->GetPos(), pos);
 
-	VECTOR to_target = VSub(player->GetPos(), pos);
+	float length = sqrtf((target.x * target.x) + (target.z * target.z));
 
-	float length = sqrtf(to_target.x * to_target.x + to_target.z * to_target.z);
-	float radius = 50.0f;
+	VECTOR normal = VGet(target.x / length, 0, target.z / length);
 
-	VECTOR normal = VGet(to_target.x / length, 0.0f, to_target.z / length);
-	float cos = normal.x * direction.x + normal.z * direction.z;
+	float cos = (normal.x * direction.x) + (normal.z * direction.z);
 
-	float arc_rad = 45.0f * DX_PI / 180.0f;
-	float arc_cos = cosf(arc_rad);
-
-	if (cos >= arc_cos)
+	if (cos >= 0)
 	{
 		return true;
 	}
+
 	return false;
 }
 
-VECTOR Enemy::GetTargetDerectionXZ()
+VECTOR Enemy::GetTargetDirectionZX()
 {
 	VECTOR direction = VSub(player->GetPos(), pos);
 	direction.y = 0;

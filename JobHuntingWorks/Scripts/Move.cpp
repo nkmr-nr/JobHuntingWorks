@@ -7,29 +7,33 @@
 
 StateBase* Move::Update(Enemy* enemy)
 {
-	const int speed = 5;
-	if (enemy->IsFound() == true)
+	enemy->Move();
+
+	counter++;
+
+	VECTOR direction = enemy->GetTargetDirectionZX();
+	const float speed = 5;
+
+	direction.x *= speed;
+	direction.z *= speed;
+
+	enemy->SetMoveVector(direction);
+
+	if (counter >= 300)
+	{
+		counter = 0;
+
+		return Wait::Instance();
+	}
+	else if (enemy->IsFound() == true)
 	{
 		return Chase::Instance();
 	}
-	if (isDecision == false)
-	{
-		degree = rand() % 360;
-		isDecision = true;
-	}
-	
-	float rad = ((float)degree * (DX_PI / 180));
 
-	 moveVec= VGet(sinf(rad * speed), 0, cosf(rad * speed));
-	enemy->MoveVec(moveVec);
-
-	float counter = enemy->GetCounter();
-
-	if (counter > 30)
-	{
-		isDecision = false;
-		return Wait::Instance();
-	}
+	//float rad = atan2f(-direction.x, -direction.z);
+	//VECTOR rotateDegree = enemy->GetRotateDegree();
+	//rotateDegree.y = rad * (180 / DX_PI);
+	//enemy->GetAngle(rotateDegree.y);
 
 	return this;
 }

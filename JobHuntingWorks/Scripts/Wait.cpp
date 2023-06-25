@@ -7,14 +7,20 @@
 
 StateBase* Wait::Update(Enemy* enemy)
 {
-	int counter = enemy->GetCounter();
-	if (counter >= 180)
+	const float speed = 5;
+	counter--;
+	if (counter <= 0)
 	{
+		counter = 180;
+		int degree = rand() % 360;
+		float rad = (float)degree * (DX_PI / 180);
+		enemy->SetMoveVector(VGet(sinf(rad * speed), 0, cosf(rad * speed)));
 		return Move::Instance();
 	}
-	if (enemy->IsFound() == true)
+	else if (enemy->IsFound() == true)
 	{
 		return Chase::Instance();
 	}
+
 	return this;
 }

@@ -9,6 +9,7 @@ class Wait : public StateBase
 private:
 	Wait()
 		:StateBase(EnemyState::WaitState)
+		,counter(0)
 	{
 
 	}
@@ -23,6 +24,8 @@ public:
 		return &pInstance;
 	}
 	StateBase* Update(Enemy*enemy)override;	//Enemy‚Ìó‘Ô‚ğ•Ô‚·
+private:
+	int counter;
 };
 
 #endif//#define STATE_WAIT_H_

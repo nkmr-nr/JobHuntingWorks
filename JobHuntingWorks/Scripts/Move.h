@@ -10,9 +10,7 @@ class Move : public StateBase
 private:
 	Move()
 		:StateBase(EnemyState::AttackState)
-		, moveVec(VGet(0,0,0))
-		,degree(0)
-		,isDecision(false)
+		,counter(0)
 	{
 
 	}
@@ -28,9 +26,7 @@ public:
 	}
 	StateBase* Update(Enemy* enemy)override;		//Enemyの状態を返す
 private:
-	VECTOR moveVec;										//ベクトル
-	int degree;													//角度
-	bool isDecision;											//角度が決定したか
+	int counter;
 };
 
 #endif//#define MOVE_STATE_H_

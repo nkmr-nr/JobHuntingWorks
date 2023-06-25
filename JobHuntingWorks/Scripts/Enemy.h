@@ -13,7 +13,7 @@ class Player;
 class Enemy : public Objects
 {
 public:
-	Enemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_,Objects*player_)
+	Enemy(VECTOR pos_, static VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_,Objects*player_)
 		:Objects(pos_, rotateDegree_,scale_,modelHandle_,stageHandle_,healthPoint_)
 		,state(Wait::Instance())
 		,counter(0)
@@ -36,19 +36,23 @@ public:
 		counter++;
 		return counter;
 	}
-	void MoveVec(VECTOR  moveVec_)				//動く
+	void SetMoveVector(VECTOR vec)					//要素の値を代入
 	{
-		float length = sqrtf((moveVec_.x * moveVec_.x) + (moveVec_.z * moveVec_.z));
-		pos = VAdd(pos, moveVec_);
+		moveVec = vec;
 	}
-	VECTOR GetTargetDerectionXZ();				//XZ軸の回転
-	void SetMoveVec(VECTOR derection)
+	void Move()												//決定しtベクトルに進む
 	{
-		moveVec = derection;
+		float length = sqrtf((moveVec.x * moveVec.x) + (moveVec.z * moveVec.z));
+		pos = VAdd(pos, moveVec);
 	}
-	float GetRotateDegree_Y(float rotateDegree_Y)	//Y軸の所得
+	void GetAngle(float rotateDegree_y)				//回転角度
 	{
-		return rotateDegree.y = rotateDegree_Y;
+		rotateDegree.y = rotateDegree_y;
+	}
+	VECTOR GetTargetDirectionZX();					//敵位置算出用関数
+	VECTOR GetRotateDegree()							//回転角度取得用関数
+	{
+		return rotateDegree;
 	}
 private:
 	StateBase* state;											//Enemyの状態
