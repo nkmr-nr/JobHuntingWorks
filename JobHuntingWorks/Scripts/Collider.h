@@ -29,13 +29,13 @@ struct OBBCollider
 	VECTOR size;								// サイズ
 	VECTOR offset;							// オフセット値
 	VECTOR verticesPos[MaxVertex];	// 頂点座標
-	VECTOR axis[AxisNum];
-	MATRIX rotMatrixX;
-	MATRIX rotMatrixY;
-	MATRIX rotMatrixZ;
-	float rotX = DX_PI / 4.0f;  // 45度の回転をラジアンで表現
-	float rotY = DX_PI / 3.0f;  // 60度の回転をラジアンで表現
-	float rotZ = DX_PI / 2.0f;  // 90度の回転をラジアンで表現
+	VECTOR axis[AxisNum];				//
+	MATRIX rotMatrixX;					//
+	MATRIX rotMatrixY;					//
+	MATRIX rotMatrixZ;					//
+	float rotX = DX_PI / 4.0f;				// 45度の回転をラジアンで表現
+	float rotY = DX_PI / 3.0f;				// 60度の回転をラジアンで表現
+	float rotZ = DX_PI / 2.0f;				// 90度の回転をラジアンで表現
 	MATRIX rotationMatrix;
 
 	OBBCollider(VECTOR size_, VECTOR offset_)

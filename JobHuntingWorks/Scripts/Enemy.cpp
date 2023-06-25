@@ -53,11 +53,6 @@ bool Enemy::IsFound()
 	float length = sqrtf(to_target.x * to_target.x + to_target.z * to_target.z);
 	float radius = 50.0f;
 
-	if (radius < length)
-	{
-		return false;
-	}
-
 	VECTOR normal = VGet(to_target.x / length, 0.0f, to_target.z / length);
 	float cos = normal.x * direction.x + normal.z * direction.z;
 
@@ -68,6 +63,7 @@ bool Enemy::IsFound()
 	{
 		return true;
 	}
+	return false;
 }
 
 VECTOR Enemy::GetTargetDerectionXZ()

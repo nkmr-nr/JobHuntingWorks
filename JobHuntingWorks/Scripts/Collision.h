@@ -30,10 +30,12 @@ public:
 	void Init()override;
 	void Update()override;
 	void Draw()override;
-	bool OnCollisionRectAndRect();																																		//矩形と矩形の当たり判定
-	bool OnCollisionOBBAndEnemy();																																	//OBBColliderと敵の当たり判定
-	OBBCollider ConvertToOBBCollider(const RectInfomation& rect);
+	bool OnCollisionRectAndRect();
 	bool Intersects(const OBBCollider& obb, const RectInfomation& rect);
+	OBBCollider ConvertToOBBCollider(const RectInfomation& rect);//矩形を行列にしてる。
+	float DotProduct(const VECTOR& a, const VECTOR& b);			//内積で内か外かの計算
+	bool Overlap(float minA, float maxA, float minB, float maxB);// 2つの大きさが重なっているかどうか計算
+	bool IntersectsOBB(const OBBCollider& obbA, const OBBCollider& obbB);//各頂点が内か外かの計算
 private:
 	Objects* player;																																							//Player情報
 	Objects* enemy;																																							//Enemy情報
