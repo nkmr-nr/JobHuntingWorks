@@ -16,23 +16,44 @@ struct RectInfomation
 		, rectSize(size_)
 	{
 	}
-	VECTOR pos;
+	VECTOR pos; 
+
 	VECTOR rectSize;
 };
 
 struct OBBCollider
 {
 	static const int MaxVertex = 8;		//頂点の数
+	static const int AxisNum = 3;
 
 	VECTOR size;								// サイズ
 	VECTOR offset;							// オフセット値
 	VECTOR verticesPos[MaxVertex];	// 頂点座標
+	VECTOR axis[AxisNum];
+	MATRIX rotMatrixX;
+	MATRIX rotMatrixY;
+	MATRIX rotMatrixZ;
+	float rotX = DX_PI / 4.0f;  // 45度の回転をラジアンで表現
+	float rotY = DX_PI / 3.0f;  // 60度の回転をラジアンで表現
+	float rotZ = DX_PI / 2.0f;  // 90度の回転をラジアンで表現
+	MATRIX rotationMatrix;
 
-	OBBCollider(VECTOR size_, VECTOR offset_) :
-		size(size_),
-		offset(offset_)
+	OBBCollider(VECTOR size_, VECTOR offset_)
+		:size(size_)
+		, offset(offset_)
+		, rotMatrixX(MGetRotX(rotX))
+		, rotMatrixY(MGetRotY(rotY))
+		, rotMatrixZ(MGetRotZ(rotZ))
+		, rotX(DX_PI / 4.0f)
+		, rotY(DX_PI / 3.0f)
+		, rotZ(DX_PI / 2.0f)
+		, rotationMatrix(MMult(MMult(rotMatrixX, rotMatrixY), rotMatrixZ))
 	{
-		
+
+		axis[0] = VGet(rotationMatrix.m[0][0], rotationMatrix.m[0][1], rotationMatrix.m[0][2]);
+		axis[1] = VGet(rotationMatrix.m[1][0], rotationMatrix.m[1][1], rotationMatrix.m[1][2]);
+		axis[2] = VGet(rotationMatrix.m[2][0], rotationMatrix.m[2][1], rotationMatrix.m[2][2]);
+
 		VECTOR half_size = VScale(size, 0.5f);
 
 		//各頂点座標の情報
@@ -66,8 +87,6 @@ struct OBBCollider
 			verticesPos[i] = VTransform(verticesPos[i], scale_adjustment_matrix_);
 		}
 	}
-
-private:
 	VECTOR basicVerticesPos[MaxVertex];	// 頂点座標
 };
 

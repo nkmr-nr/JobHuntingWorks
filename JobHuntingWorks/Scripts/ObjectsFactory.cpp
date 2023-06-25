@@ -15,3 +15,8 @@ Objects* ObjectsFactory::CreateMap(VECTOR pos_, VECTOR rotateDegree_, VECTOR sca
 {
 	return new Map(pos_,rotateDegree_,scale_,modelHandle_);
 }
+
+Objects* ObjectsFactory::CreateCollision(Objects* player_, Objects* enemy_, RectInfomation* rect01_, RectInfomation* rect02_)
+{
+	return Collision::Instance(player_, enemy_, rect01_, rect02_);
+}

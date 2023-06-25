@@ -30,13 +30,15 @@ public:
 	void Init()override;
 	void Update()override;
 	void Draw()override;
-	bool OnCollisionRectAndRect();			//矩形と矩形の当たり判定
-	bool OnCollisionOBBAndRect();		//OBBColliderと矩形の当たり判定
+	bool OnCollisionRectAndRect();																																		//矩形と矩形の当たり判定
+	bool OnCollisionOBBAndEnemy();																																	//OBBColliderと敵の当たり判定
+	OBBCollider ConvertToOBBCollider(const RectInfomation& rect);
+	bool Intersects(const OBBCollider& obb, const RectInfomation& rect);
 private:
-	Objects* player;
-	Objects* enemy;
-	RectInfomation* rectInfo01;
-	RectInfomation* rectInfo02;
+	Objects* player;																																							//Player情報
+	Objects* enemy;																																							//Enemy情報
+	RectInfomation* rectInfo01;																																			//矩形の情報
+	RectInfomation* rectInfo02;																																			//矩形の情報
 };
 
 #endif//#define COLLISION_H_
