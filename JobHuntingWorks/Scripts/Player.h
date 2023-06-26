@@ -33,10 +33,10 @@ public:
 	{
 
 	}
-	void Init();
-	void Update();
+	void Init()override;
+	void Update()override;
 	void UpdateMatrix();
-	void Draw();
+	void Draw()override;
 private:
 	int isAttacking;						//UŒ‚’†‚©‚Ç‚¤‚©
 
