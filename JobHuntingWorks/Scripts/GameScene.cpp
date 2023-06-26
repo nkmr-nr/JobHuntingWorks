@@ -41,7 +41,8 @@ void GameScene::Init()
 	ObjectsManager::Instance()->Entry(enemyInstance);
 	ObjectsManager::Instance()->Entry(collisionInstance);
 	ObjectsManager::Instance()->Entry(ObjectsFactory::Instance()->CreateMap(VGet(0, 0, 0), VGet(0, 0, 0), VGet(1, 1, 1), -1));
-	
+	ObjectsManager::Instance()->Entry(ObjectsFactory::Instance()->CreateGoal(VGet(1000, 50, 1000), VGet(0, 0, 0), VGet(50, 50,50), -1,-1,0));
+
 	ObjectsManager::Instance()->Init();
 
 	NonObjectsManager::Instance()->Entry(NonObjectsFactory::Instance()->CreateCamera(playerInstance));

@@ -7,6 +7,7 @@
 #include"Map.h"
 #include"Enemy.h"
 #include"Collision.h"
+#include"Goal.h"
 
 class ObjectsFactory
 {
@@ -29,6 +30,7 @@ public:
 	Objects* CreatePlayer(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_,int stageHandle_, int healthPoint_);														//Player‚ğì‚é
 	Objects* CreateEnemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_,int healthPoint_,Objects*player_);								//Enemy‚ğì‚é
 	Objects* CreateMap(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_);																										//Map‚ğì‚é
+	Objects* CreateGoal(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_);								//Gaol‚ğì‚é
 	Objects* CreateCollision(Objects* player_, Objects* enemy_, RectInfomation* rect01_, RectInfomation* rect02_);
 };
 

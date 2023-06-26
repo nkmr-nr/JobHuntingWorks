@@ -56,6 +56,9 @@
     <Filter Include="ソース ファイル\Objects\Collision">
       <UniqueIdentifier>{bb23fb94-e618-4c69-9db3-97e0f244504d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Objects\Goal">
+      <UniqueIdentifier>{7100ef8a-b2e2-4150-a88a-3937389dbc97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scripts\Main.cpp">
@@ -120,6 +123,9 @@
     </ClCompile>
     <ClCompile Include="Scripts\Collision.cpp">
       <Filter>ソース ファイル\Objects\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Goal.cpp">
+      <Filter>ソース ファイル\Objects\Goal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +197,9 @@
     </ClInclude>
     <ClInclude Include="Scripts\Collision.h">
       <Filter>ソース ファイル\Objects\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Goal.h">
+      <Filter>ソース ファイル\Objects\Goal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

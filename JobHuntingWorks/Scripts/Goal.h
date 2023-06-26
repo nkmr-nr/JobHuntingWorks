@@ -6,25 +6,21 @@
 
 class Goal : public Objects
 {
-private:
+public:
 	Goal(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_)
 		:Objects(pos_,rotateDegree_,scale_,modelHandle_,stageHandle_,healthPoint_)
+		,counter(0)
 	{
 
 	}
-public:
 	~Goal()
 	{
-	}
-	static Goal* Instance(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_)
-	{
-		static Goal pInstance(pos_, rotateDegree_, scale_, modelHandle_, stageHandle_, healthPoint_);
-		return &pInstance;
 	}
 	void Init()override;
 	void Update()override;
 	void Draw()override;
 private:
+	int counter;
 };
 
 #endif//#define GOAL_H_
