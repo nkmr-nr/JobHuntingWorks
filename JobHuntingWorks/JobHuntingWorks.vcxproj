@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Scripts\Attack.cpp" />
     <ClCompile Include="Scripts\Camera.cpp" />
     <ClCompile Include="Scripts\Chase.cpp" />
     <ClCompile Include="Scripts\Collision.cpp" />
@@ -43,7 +42,6 @@
     <ClCompile Include="Scripts\Wait.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scripts\Attack.h" />
     <ClInclude Include="Scripts\Camera.h" />
     <ClInclude Include="Scripts\Chase.h" />
     <ClInclude Include="Scripts\Collider.h" />

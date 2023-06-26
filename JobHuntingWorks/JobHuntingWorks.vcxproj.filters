@@ -88,9 +88,6 @@
     <ClCompile Include="Scripts\Enemy.cpp">
       <Filter>ソース ファイル\Objects\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\Attack.cpp">
-      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
-    </ClCompile>
     <ClCompile Include="Scripts\Chase.cpp">
       <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
     </ClCompile>
@@ -154,9 +151,6 @@
       <Filter>ソース ファイル\Objects\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Wait.h">
-      <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
-    </ClInclude>
-    <ClInclude Include="Scripts\Attack.h">
       <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Chase.h">
