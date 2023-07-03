@@ -33,8 +33,8 @@ void GameScene::LatestSceneType()
 
 void GameScene::Init()
 {
-	Object* playerInstance = ObjectsFactory::Instance()->CreatePlayer(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0.4f, 0.4f, 0.4f), -1, -1, 10);
-	Object* enemyInstance = ObjectsFactory::Instance()->CreateEnemy(VGet(0, -40, 0), VGet(0, 0, 0), VGet(0.5f, 0.5f, 0.5f), -1, -1, 0, playerInstance);
+	Player* playerInstance = ObjectsFactory::Instance()->CreatePlayer(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0.4f, 0.4f, 0.4f), -1, -1, 10);
+	Enemy* enemyInstance = ObjectsFactory::Instance()->CreateEnemy(VGet(0, -40, 0), VGet(0, 0, 0), VGet(0.5f, 0.5f, 0.5f), -1, -1, 0, playerInstance);
 
 	ObjectsManager::Instance()->Entry(playerInstance);
 	ObjectsManager::Instance()->Entry(enemyInstance);
@@ -44,6 +44,7 @@ void GameScene::Init()
 	ObjectsManager::Instance()->Init();
 
 	SystemObjectManager::Instance()->Entry(SystemObjectFactory::Instance()->CreateCamera(playerInstance));
+	SystemObjectManager::Instance()->Entry(SystemObjectFactory::Instance()->CreateCollision(playerInstance, enemyInstance));
 	SystemObjectManager::Instance()->Init();
 
 	sceneType = SceneType::Update;

@@ -99,6 +99,6 @@ void Player::Draw()
 	playerAnim->Draw();
 	//デバッグ用
 #ifdef DEBUG_COLLISION
-	MV1DrawModel(g_BoxHandle);
+	collider.Draw();
 #endif
 }

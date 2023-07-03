@@ -1,12 +1,12 @@
 
 #include "ObjectsFactory.h"
 
-Object* ObjectsFactory::CreatePlayer(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_)
+Player* ObjectsFactory::CreatePlayer(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_)
 {
 	return new Player(pos_, rotateDegree_,scale_,modelHandle_,stageHandle_,healthPoint_);
 }
 
-Object* ObjectsFactory::CreateEnemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_,int healthPoint_, Object*player_)
+Enemy* ObjectsFactory::CreateEnemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_,int healthPoint_, Object*player_)
 {
 	return new Enemy(pos_, rotateDegree_, scale_, modelHandle_, stageHandle_, healthPoint_,player_);
 }

@@ -27,7 +27,7 @@ public:
 	void Init();														//初期化
 	void Update();													//更新
 private:
-	std::list<SystemObject*>nonObjects;						//オブジェクトの管理をしてる
+	std::list<SystemObject*>systemObjects;						//オブジェクトの管理をしてる
 };
 
 #endif//#define SYSTEM_OBJECT_MANAGER_H_

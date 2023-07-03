@@ -37,13 +37,13 @@ public:
 	void Update()override;
 	void UpdateMatrix();
 	void Draw()override;
+	OBBCollider collider;				//コライダー
 private:
 	int isAttacking;						//攻撃中かどうか
 
 	MATRIX worldMatrix;				//ワールド座標の行列
 	MATRIX matricesScale;				//拡縮用行列
 
-	OBBCollider collider;				//コライダー
 	PlayerAnimation* playerAnim;	//プレイヤーのアニメーション
 #if defined DEBUG_COLLISION
 	MATRIX collisionBoxMatrix;		// デバッグ用の直方体描画のための行列

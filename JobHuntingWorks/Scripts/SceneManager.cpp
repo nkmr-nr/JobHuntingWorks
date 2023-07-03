@@ -6,7 +6,7 @@
 #include "SceneBase.h"
 #include "SceneManager.h"
 
-SceneBase* SceneManager::LatestState()
+void SceneManager::LatestState()
 {
 	sceneKind = type->GetSceneKind();
 	switch (sceneKind)
@@ -23,7 +23,6 @@ SceneBase* SceneManager::LatestState()
 	default:
 		break;
 	}
-	return type;
 }
 
 

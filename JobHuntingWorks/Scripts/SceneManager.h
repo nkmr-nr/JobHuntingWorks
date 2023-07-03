@@ -27,7 +27,7 @@ public:
 		static SceneManager pInstance;
 		return &pInstance;
 	}
-	SceneBase* LatestState();				//シーンの種類
+	void LatestState();				//シーンの種類
 	void GameLoop();						//ゲームループ
 private:
 	SceneBase::SceneKind sceneKind;	//シーンの種類

@@ -1,20 +1,20 @@
 
 #include "SystemObjectManager.h"
 
-bool SystemObjectManager::Entry(SystemObject* nonObj)
+bool SystemObjectManager::Entry(SystemObject* systemObj)
 {
-	if (nonObj == nullptr)
+	if (systemObj == nullptr)
 	{
 		return false;
 	}
-	nonObjects.push_back(nonObj);
+	systemObjects.push_back(systemObj);
 
 	return true;
 }
 
 void SystemObjectManager::Init()
 {
-	for (SystemObject* nonObj : nonObjects)
+	for (SystemObject* nonObj : systemObjects)
 	{
 		nonObj->Init();
 	}
@@ -22,7 +22,7 @@ void SystemObjectManager::Init()
 
 void SystemObjectManager::Update()
 {
-	for (SystemObject* nonObj : nonObjects)
+	for (SystemObject* nonObj : systemObjects)
 	{
 		nonObj->Update();
 	}

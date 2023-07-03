@@ -11,108 +11,200 @@ void Collision::Init()
 
 void Collision::Update()
 {
+    if (CheckCollision(enemy->rectCollider, player->collider) == true)
+    {
+        printf("a");
+    }
 }
 
-bool Collision::OnCollisionRectAndRect()
+bool Collision::CheckCollision(RectCollider& rect, OBBCollider& obb)
 {
-	VECTOR vec = VSub(rectInfo01->pos, rectInfo02->pos);
+    // RectColliderの矩形の情報を取得
+    VECTOR rectPos = rect.pos;
+    VECTOR rectSize = rect.rectSize;
+    float rectHalfWidth = rectSize.x / 2.0f;
+    float rectHalfHeight = rectSize.y / 2.0f;
+    float rectHalfDepth = rectSize.z / 2.0f;
 
-	vec.x = sqrtf(vec.x);
-	vec.z = sqrtf(vec.z);
+    // OBBColliderの頂点座標を取得
+    VECTOR* obbVertices = obb.verticesPos;
 
-	VECTOR size = VAdd(rectInfo01->rectSize, rectInfo02->rectSize);
-	size.x = size.x / 2.0f;
-	size.z = size.z / 2.0f;
+    // OBBColliderの軸ベクトルを取得
+    VECTOR* obbAxis = obb.axis;
 
-	if (vec.x <= size.x && vec.z <= size.z)
-	{
-		return true;
-	}
+    // OBBColliderのサイズ情報を取得
+    VECTOR obbSize = obb.size;
+    float obbHalfWidth = obbSize.x / 2.0f;
+    float obbHalfHeight = obbSize.y / 2.0f;
+    float obbHalfDepth = obbSize.z / 2.0f;
 
-	return false;
+    // OBBColliderの中心位置を計算
+    VECTOR obbCenter = VAdd(obb.offset, rectPos);
+
+    // OBBColliderの各軸とRectColliderの軸との分離軸テスト
+    for (int i = 0; i < OBBCollider::AxisNum; i++)
+    {
+        // OBBColliderの軸ベクトルを取得
+        VECTOR axis = obbAxis[i];
+
+        // OBBColliderの投影範囲を計算
+        float obbMin = FLT_MAX;
+        float obbMax = -FLT_MAX;
+        for (int j = 0; j < OBBCollider::MaxVertex; j++)
+        {
+            float dotProduct = VDot(obbVertices[j], axis);
+            obbMin = fminf(obbMin, dotProduct);
+            obbMax = fmaxf(obbMax, dotProduct);
+        }
+
+        // RectColliderの投影範囲を計算
+        float rectMin = VDot(rectPos, axis) - rectHalfWidth * fabsf(axis.x) - rectHalfHeight * fabsf(axis.y) - rectHalfDepth * fabsf(axis.z);
+        float rectMax = rectMin + rectSize.x * fabsf(axis.x) + rectSize.y * fabsf(axis.y) + rectSize.z * fabsf(axis.z);
+
+        // 分離軸テスト
+        if (rectMax < obbMin || obbMax < rectMin)
+        {
+            return false;
+        }
+    }
+
+    // RectColliderの各軸とOBBColliderの辺との分離軸テストを行う
+    for (int i = 0; i < 3; i++)
+    {
+        // OBBColliderの軸ベクトルを取得
+        VECTOR axis = VCross(obbAxis[i], VGet(0, 1, 0));
+
+        // OBBColliderの投影範囲を計算
+        float obbMin = FLT_MAX;
+        float obbMax = -FLT_MAX;
+        for (int j = 0; j < OBBCollider::MaxVertex; j++)
+        {
+            float dotProduct = VDot(obbVertices[j], axis);
+            obbMin = fminf(obbMin, dotProduct);
+            obbMax = fmaxf(obbMax, dotProduct);
+        }
+
+        // RectColliderの投影範囲を計算
+        float rectMin = VDot(rectPos, axis) - rectHalfWidth * fabsf(axis.x) - rectHalfDepth * fabsf(axis.z);
+        float rectMax = rectMin + rectSize.x * fabsf(axis.x) + rectSize.z * fabsf(axis.z);
+
+        // 分離軸テスト
+        if (rectMax < obbMin || obbMax < rectMin)
+        {
+            return false;
+        }
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        // OBBColliderの軸ベクトルを取得
+        VECTOR axis = VCross(obbAxis[i], VGet(1, 0, 0));
+
+        // OBBColliderの投影範囲を計算
+        float obbMin = FLT_MAX;
+        float obbMax = -FLT_MAX;
+        for (int j = 0; j < OBBCollider::MaxVertex; j++)
+        {
+            float dotProduct = VDot(obbVertices[j], axis);
+            obbMin = fminf(obbMin, dotProduct);
+            obbMax = fmaxf(obbMax, dotProduct);
+        }
+
+        // RectColliderの投影範囲を計算
+        float rectMin = VDot(rectPos, axis) - rectHalfHeight * fabsf(axis.y) - rectHalfDepth * fabsf(axis.z);
+        float rectMax = rectMin + rectSize.y * fabsf(axis.y) + rectSize.z * fabsf(axis.z);
+
+        // 分離軸テスト
+        if (rectMax < obbMin || obbMax < rectMin)
+        {
+            return false;
+        }
+    }
+
+    // RectColliderの各辺とOBBColliderの面との分離軸テストを行う
+    for (int i = 0; i < 3; i++)
+    {
+        // OBBColliderの軸ベクトルを取得
+        VECTOR axis = obbAxis[i];
+
+        // OBBColliderの投影範囲を計算
+        float obbMin = FLT_MAX;
+        float obbMax = -FLT_MAX;
+        for (int j = 0; j < OBBCollider::MaxVertex; j++)
+        {
+            float dotProduct = VDot(obbVertices[j], axis);
+            obbMin = fminf(obbMin, dotProduct);
+            obbMax = fmaxf(obbMax, dotProduct);
+        }
+
+        // RectColliderの辺の方向ベクトルを計算
+        VECTOR edgeDir1 = VSub(VGet(rectHalfWidth, 0, 0), VGet(-rectHalfWidth, 0, 0));
+        VECTOR edgeDir2 = VSub(VGet(0, rectHalfHeight, 0), VGet(0, -rectHalfHeight, 0));
+        VECTOR edgeDir3 = VSub(VGet(0, 0, rectHalfDepth), VGet(0, 0, -rectHalfDepth));
+
+        // RectColliderの辺の方向ベクトルをOBBColliderの座標空間に変換
+        edgeDir1 = VTransform(edgeDir1, obb.rotationMatrix);
+        edgeDir2 = VTransform(edgeDir2, obb.rotationMatrix);
+        edgeDir3 = VTransform(edgeDir3, obb.rotationMatrix);
+
+        // RectColliderの辺の方向ベクトルとOBBColliderの面との分離軸テストを行う
+        if (!SeparatingAxisTest(rectPos, edgeDir1, rectHalfWidth, rectHalfHeight, rectHalfDepth, obbCenter, obbSize, &obbAxis[i], obbMin, obbMax) == false)
+        {
+            return false;
+        }
+        if (!SeparatingAxisTest(rectPos, edgeDir2, rectHalfWidth, rectHalfHeight, rectHalfDepth, obbCenter, obbSize, &obbAxis[i], obbMin, obbMax) == false)
+        {
+            return false;
+        }
+        if (!SeparatingAxisTest(rectPos, edgeDir3, rectHalfWidth, rectHalfHeight, rectHalfDepth, obbCenter, obbSize, &obbAxis[i], obbMin, obbMax) == false)
+        {
+            return false;
+        }
+    }
+
+    // 分離軸テストにすべて合格した場合、衝突してる事判定
+    return true;
 }
 
-bool Collision::Intersects(const OBBCollider& obb, const RectCollider& rect)
+bool Collision::SeparatingAxisTest(const VECTOR& rectPos, const VECTOR& edgeDir, float rectHalfWidth, float rectHalfHeight, float rectHalfDepth, const VECTOR& obbCenter, const VECTOR& obbSize, const VECTOR obbAxis[3], float obbMin, float obbMax)
 {
-	OBBCollider rectOBB = ConvertToOBBCollider(rect);
+    // RectColliderの辺の方向ベクトルの長さを取得
+    float edgeLength = VSize(edgeDir);
 
-	if (IntersectsOBB(obb, rectOBB) == true)
-	{
-		printf("a");// 当たり判定(DEBUG用)
-	}
-	return IntersectsOBB(obb, rectOBB);
-}
+    // RectColliderの辺の方向ベクトルを正規化
+    VECTOR edgeDirNormalized = VScale(edgeDir, 1.0f / edgeLength);
 
-OBBCollider Collision::ConvertToOBBCollider(const RectCollider& rect)
-{
+    // RectColliderの辺の方向ベクトルとOBBColliderの面の法線ベクトルとの外積を計算
+    VECTOR crossProduct = VCross(edgeDirNormalized, obbSize);
 
-	OBBCollider obb = { VGet(200.0f, 30.0f, 30.0f), VGet(-100.0f, 10.0f, 0.0f) };
-	obb.size = rect.rectSize;
-	obb.offset = rect.pos;
+    // OBBColliderの中心位置からRectColliderの中心位置へのベクトルを計算
+    VECTOR centerToCenter = VSub(rectPos, obbCenter);
 
-	VECTOR half_size = VScale(obb.size, 0.5f);
-	//矩形の各頂点情報
-	VECTOR vertices[] =
-	{
-		VGet(-half_size.x, -half_size.y, -half_size.z),
-		VGet(-half_size.x, half_size.y, -half_size.z),
-		VGet(half_size.x, -half_size.y, -half_size.z),
-		VGet(half_size.x, half_size.y, -half_size.z),
-		VGet(-half_size.x, -half_size.y, half_size.z),
-		VGet(-half_size.x, half_size.y, half_size.z),
-		VGet(half_size.x, -half_size.y, half_size.z),
-		VGet(half_size.x, half_size.y, half_size.z),
-	};
+    // RectColliderの辺の方向ベクトルとOBBColliderの面の法線ベクトルとの内積を計算
+    float dotProduct = VDot(centerToCenter, crossProduct);
 
-	for (int i = 0; i < OBBCollider::MaxVertex; i++)
-	{
-		obb.verticesPos[i] = vertices[i];
-	}
-	return obb;
-}
+    // RectColliderの辺の方向ベクトルとOBBColliderの面の法線ベクトルが直交している場合、分離軸となるため衝突していないと判定
+    if (fabsf(dotProduct) > edgeLength * VSize(crossProduct))
+    {
+        return false;
+    }
 
-float Collision::DotProduct(const VECTOR& a, const VECTOR& b)
-{
-	return VDot(a, b);
-}
+    // OBBColliderの投影範囲を計算
+    float obbProjection = dotProduct + obbMin * edgeLength;
+    float obbProjectionMin = obbProjection - obbSize.x * VDot(edgeDirNormalized, obbAxis[0]) - obbSize.y * VDot(edgeDirNormalized, obbAxis[1]) - obbSize.z * VDot(edgeDirNormalized, obbAxis[2]);
+    float obbProjectionMax = obbProjection + obbSize.x * VDot(edgeDirNormalized, obbAxis[0]) + obbSize.y * VDot(edgeDirNormalized, obbAxis[1]) + obbSize.z * VDot(edgeDirNormalized, obbAxis[2]);
 
-bool Collision::Overlap(float minA, float maxA, float minB, float maxB)
-{
-	if (minA > maxB || minB > maxA)
-	{
-		return false;
-	}
-	return true;
-}
+    // RectColliderの投影範囲を計算
+    float rectProjection = VDot(rectPos, edgeDirNormalized) - rectHalfWidth * fabsf(VDot(edgeDirNormalized, VGet(1, 0, 0))) - rectHalfHeight * fabsf(VDot(edgeDirNormalized, VGet(0, 1, 0))) - rectHalfDepth * fabsf(VDot(edgeDirNormalized, VGet(0, 0, 1)));
+    float rectProjectionMin = rectProjection;
+    float rectProjectionMax = rectProjection + edgeLength;
 
-bool Collision::IntersectsOBB(const OBBCollider& obbA, const OBBCollider& obbB)
-{
-	VECTOR axes[] = { obbA.axis[0], obbA.axis[1], obbA.axis[2], obbB.axis[0], obbB.axis[1], obbB.axis[2] };
+    // 分離軸テスト
+    if (rectProjectionMax < obbProjectionMin || obbProjectionMax < rectProjectionMin)
+    {
+        return false;
+    }
 
-	for (int i = 0; i < 6; i++)
-	{
-		float minA = FLT_MAX;
-		float maxA = FLT_MIN;
-		for (int j = 0; j < 8; j++)
-		{
-			float val = DotProduct(obbA.verticesPos[j], axes[i]);
-			minA = min(minA, val);
-			maxA = max(maxA, val);
-		}
-
-		float minB = FLT_MAX;
-		float maxB = FLT_MIN;
-		for (int j = 0; j < 8; j++)
-		{
-			float val = DotProduct(obbB.verticesPos[j], axes[i]);
-			minB = min(minB, val);
-			maxB = max(maxB, val);
-		}
-
-		if (!Overlap(minA, maxA, minB, maxB))
-		{
-			return false;
-		}
-	}
-	return true;
+    // 分離軸テストに合格した場合、衝突していないと判定
+    return true;
 }

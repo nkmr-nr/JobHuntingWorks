@@ -5,6 +5,8 @@
 #include"Objects.h"
 #include"SystemObject.h"
 #include"Collider.h"
+#include"Player.h"
+#include"Enemy.h"
 
 class SystemObjectFactory
 {
@@ -23,8 +25,8 @@ public:
 		static SystemObjectFactory pInstance;
 		return &pInstance;
 	}
-	SystemObject* CreateCamera(Object* target);
-	SystemObject* CreateCollision(Object* player_, Object* enemy_, RectCollider* rect01_, RectCollider* rect02_);
+	SystemObject* CreateCamera(Object* target);								//カメラのインスタンス
+	SystemObject* CreateCollision(Player* player_, Enemy* enemy_);	//当たり判定のインスタンス
 };
 
 #endif//#define SYSTEM_OBJECT_FACTORY_H_

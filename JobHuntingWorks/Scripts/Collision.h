@@ -5,15 +5,15 @@
 #include"Collider.h"
 #include"Objects.h"
 #include "SystemObject.h"
+#include"Enemy.h"
+#include"Player.h"
 
 class Collision : public SystemObject
 {
 private:
-	Collision(Object*player_, Object* enemy_, RectCollider*rectInfo01_, RectCollider*rectInfo02_)
+	Collision(Player*player_, Enemy* enemy_)
 		:player(player_)
 		,enemy(enemy_)
-		,rectInfo01(rectInfo01_)
-		,rectInfo02(rectInfo02_)
 	{
 
 	}
@@ -22,24 +22,20 @@ public:
 	{
 
 	}
-	static Collision* Instance(Object* player_, Object* enemy_, RectCollider* rectInfo01_, RectCollider* rectInfo02_)				//Colliderのインスタンス
+	static Collision* Instance(Player* player_, Enemy* enemy_)			//Colliderのインスタンス
 	{
-		static Collision pInstance(player_,enemy_,rectInfo01_,rectInfo02_);
+		static Collision pInstance(player_,enemy_);
 		return &pInstance;
 	}
 	void Init()override;
 	void Update()override;
-	bool OnCollisionRectAndRect();
-	bool Intersects(const OBBCollider& obb, const RectCollider& rect);
-	OBBCollider ConvertToOBBCollider(const RectCollider& rect);//矩形を行列にしてる。
-	float DotProduct(const VECTOR& a, const VECTOR& b);			//内積で内か外かの計算
-	bool Overlap(float minA, float maxA, float minB, float maxB);// 2つの大きさが重なっているかどうか計算
-	bool IntersectsOBB(const OBBCollider& obbA, const OBBCollider& obbB);//各頂点が内か外かの計算
+	bool CheckCollision(RectCollider& rect, OBBCollider& obb);		//当たり判定
+	bool SeparatingAxisTest(const VECTOR& rectPos, const VECTOR& edgeDir, float rectHalfWidth, float rectHalfHeight, float rectHalfDepth,
+		const VECTOR& obbCenter, const VECTOR& obbSize, const VECTOR obbAxis[3], float obbMin, float obbMax);
+																							//軸のうちか外か判定してる
 private:
-	Object* player;																																							//Player情報
-	Object* enemy;																																							//Enemy情報
-	RectCollider* rectInfo01;																																			//矩形の情報
-	RectCollider* rectInfo02;																																			//矩形の情報
+	Player* player;																		//Player情報
+	Enemy* enemy;																	//Enemy情報
 };
 
 #endif//#define COLLISION_H_

@@ -7,6 +7,7 @@
 #include"StateBase.h"
 #include"EnemyAnimation.h"
 #include<math.h>
+#include"Collider.h"
 
 class Player;
 
@@ -20,6 +21,7 @@ public:
 		,enemyAnim(EnemyAnimation::Instance(this))
 		,player(player_)
 		,moveVec(VGet(0,0,0))
+		,rectCollider(pos,scale)
 	{
 
 	}
@@ -54,6 +56,8 @@ public:
 	{
 		return rotateDegree;
 	}
+
+	RectCollider rectCollider;
 private:
 	StateBase* state;											//Enemy‚Ìó‘Ô
 	int counter;													//wait‚Ìcounter
