@@ -25,7 +25,7 @@ public:
 		return &pInstance;
 	}
 
-	bool Entry(Objects* obj);									//オブジェクトの登録
+	bool Entry(Object* obj);									//オブジェクトの登録
 	void Init();														//初期化
 	void Update();													//更新
 	void Draw();													//描画
@@ -36,7 +36,7 @@ public:
 		return objects.size();
 	}
 private:
-	std::list<Objects*>objects;									//Objectを管理してる
+	std::list<Object*>objects;									//Objectを管理してる
 };
 
 #endif//#define OBJECTS_MANAGER_H_

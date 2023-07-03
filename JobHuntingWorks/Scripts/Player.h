@@ -13,11 +13,11 @@
 extern int g_BoxHandle;
 #endif
 
-class Player : public Objects
+class Player : public Object
 {
 public:
 	Player(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_,int stageHandle_,int healthPoint_)
-		:Objects(pos_,rotateDegree_,scale_,modelHandle_,stageHandle_,healthPoint_)
+		:Object(pos_,rotateDegree_,scale_,modelHandle_,stageHandle_,healthPoint_)
 		, isAttacking(false)
 		, collider(VGet(200.0f, 30.0f, 30.0f), VGet(-100.0f, 10.0f, 0.0f))
 		,playerAnim(PlayerAnimation::Instance(this))

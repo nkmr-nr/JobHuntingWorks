@@ -4,14 +4,14 @@
 
 #include "DxLib.h"
 
-struct RectInfomation
+struct RectCollider
 {
-	RectInfomation(VECTOR* pos_, VECTOR* size_)
+	RectCollider(VECTOR* pos_, VECTOR* size_)
 		:pos(pos_ != nullptr ? *pos_ : VGet(0, 0, 0))
 		, rectSize(size_ != nullptr ? *size_ : VGet(0, 0, 0))
 	{
 	}
-	RectInfomation(VECTOR& pos_, VECTOR& size_)
+	RectCollider(VECTOR& pos_, VECTOR& size_)
 		:pos(pos_)
 		, rectSize(size_)
 	{

@@ -1,7 +1,7 @@
 
 #include "Objects.h"
 
-void Objects::OnCollisionStage()
+void Object::OnCollisionStage()
 {
 	VECTOR ray_start = pos;
 	ray_start.y += 10.0f;

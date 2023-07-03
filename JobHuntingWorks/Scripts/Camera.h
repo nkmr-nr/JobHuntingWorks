@@ -4,14 +4,14 @@
 
 #include <DxLib.h>
 #include"Objects.h"
-#include"NonObjects.h"
+#include"SystemObject.h"
 
 class Player;
 
-class Camera : public NonObjects
+class Camera : public SystemObject
 {
 private:
-	Camera(VECTOR pos_, VECTOR target_, VECTOR rotateAngle_, Objects* player_)
+	Camera(VECTOR pos_, VECTOR target_, VECTOR rotateAngle_, Object* player_)
 		:pos(pos_)
 		, target(target_)
 		, rotateAngle(rotateAngle_)
@@ -26,7 +26,7 @@ public:
 	{
 
 	}
-	static Camera* Instance(Objects* player_)
+	static Camera* Instance(Object* player_)
 	{
 		static Camera pInstance(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0, 0, 0), player_);
 		return &pInstance;
@@ -52,7 +52,7 @@ public:
 
 		SetCameraPositionAndTargetAndUpVec(pos, target, VGet(0, 1, 0));
 	}
-	void SetTarget(Objects* target_)		//targetの設定
+	void SetTarget(Object* target_)		//targetの設定
 	{
 		targetObj = target_;
 	}
@@ -61,7 +61,7 @@ private:
 	VECTOR pos;								//ポジション
 	VECTOR target;							//ターゲットのベクトル
 	VECTOR rotateAngle;					//回転角度
-	Objects* targetObj;						//ターゲット
+	Object* targetObj;						//ターゲット
 	bool isAttacking;							//Playerがアタック中か
 };
 

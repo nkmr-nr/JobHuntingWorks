@@ -4,7 +4,7 @@
 
 #include"Objects.h"
 #include"Player.h"
-#include"Map.h"
+#include"Stage.h"
 #include"Enemy.h"
 #include"Collision.h"
 #include"Goal.h"
@@ -27,11 +27,10 @@ public:
 		return &pInstance;
 	}
 
-	Objects* CreatePlayer(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_,int stageHandle_, int healthPoint_);														//Player‚ğì‚é
-	Objects* CreateEnemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_,int healthPoint_,Objects*player_);								//Enemy‚ğì‚é
-	Objects* CreateMap(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_);																										//Map‚ğì‚é
-	Objects* CreateGoal(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_);								//Gaol‚ğì‚é
-	Objects* CreateCollision(Objects* player_, Objects* enemy_, RectInfomation* rect01_, RectInfomation* rect02_);
+	Object* CreatePlayer(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_,int stageHandle_, int healthPoint_);														//Player‚ğì‚é
+	Object* CreateEnemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_,int healthPoint_, Object*player_);								//Enemy‚ğì‚é
+	Object* CreateStage(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_);																										//Map‚ğì‚é
+	Object* CreateGoal(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_);								//Gaol‚ğì‚é
 };
 
 #endif//#define FACTORY_H_

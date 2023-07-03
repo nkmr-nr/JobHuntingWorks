@@ -4,10 +4,10 @@
 
 #include<DxLib.h>
 
-class Objects
+class Object
 {
 public:
-	Objects(VECTOR pos_,VECTOR rotateDegree_,VECTOR scale_,int modelHandle_,int stageHandle_,int healthPoint_)
+	Object(VECTOR pos_,VECTOR rotateDegree_,VECTOR scale_,int modelHandle_,int stageHandle_,int healthPoint_)
 		:isActive(true)
 		,pos(pos_)
 		, rotateDegree(rotateDegree_)
@@ -18,7 +18,7 @@ public:
 	{
 
 	}
-	virtual~Objects()
+	virtual~Object()
 	{
 
 	}

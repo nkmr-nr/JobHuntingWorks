@@ -1,7 +1,7 @@
 
-#include "Map.h"
+#include "Stage.h"
 
-void Map::Init()
+void Stage::Init()
 {
 	modelHandle = MV1LoadModel("Res/Island/Island.mv1");
 	if (modelHandle == -1)
@@ -10,12 +10,12 @@ void Map::Init()
 	}
 }
 
-void Map::Update()
+void Stage::Update()
 {
 
 }
 
-void Map::Draw()
+void Stage::Draw()
 {
 	MV1SetPosition(modelHandle, pos);
 	MV1SetRotationXYZ(modelHandle, rotateDegree);

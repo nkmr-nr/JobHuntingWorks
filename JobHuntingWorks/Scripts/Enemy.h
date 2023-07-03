@@ -10,11 +10,11 @@
 
 class Player;
 
-class Enemy : public Objects
+class Enemy : public Object
 {
 public:
-	Enemy(VECTOR pos_, static VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_,Objects*player_)
-		:Objects(pos_, rotateDegree_,scale_,modelHandle_,stageHandle_,healthPoint_)
+	Enemy(VECTOR pos_, VECTOR rotateDegree_, VECTOR scale_, int modelHandle_, int stageHandle_, int healthPoint_, Object*player_)
+		:Object(pos_, rotateDegree_,scale_,modelHandle_,stageHandle_,healthPoint_)
 		,state(Wait::Instance())
 		,counter(0)
 		,enemyAnim(EnemyAnimation::Instance(this))
@@ -58,7 +58,7 @@ private:
 	StateBase* state;											//Enemyの状態
 	int counter;													//waitのcounter
 	EnemyAnimation* enemyAnim;						//Enemyのアニメーション
-	Objects* player;											//索敵用
+	Object* player;											//索敵用
 	VECTOR moveVec;										//移動ベクトル
 };
 

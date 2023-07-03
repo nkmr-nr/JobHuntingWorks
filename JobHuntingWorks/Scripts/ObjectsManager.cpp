@@ -1,7 +1,7 @@
 
 #include"ObjectsManager.h"
 
-bool ObjectsManager::Entry(Objects* obj)
+bool ObjectsManager::Entry(Object* obj)
 {
 	if (obj == nullptr)
 	{
@@ -14,7 +14,7 @@ bool ObjectsManager::Entry(Objects* obj)
 
 void ObjectsManager::Init()
 {
-	for (Objects* obj : objects)
+	for (Object* obj : objects)
 	{
 		if (obj->IsActive() == true)
 		{
@@ -25,7 +25,7 @@ void ObjectsManager::Init()
 
 void ObjectsManager::Update()
 {
-	for (Objects* obj : objects)
+	for (Object* obj : objects)
 	{
 		if (obj->IsActive() == true)
 		{
@@ -36,7 +36,7 @@ void ObjectsManager::Update()
 
 void ObjectsManager::Draw()
 {
-	for (Objects* obj : objects)
+	for (Object* obj : objects)
 	{
 		if (obj->IsActive() == true)
 		{

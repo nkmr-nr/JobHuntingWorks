@@ -29,17 +29,11 @@
     <Filter Include="ソース ファイル\Objects\Enemy\EnemyState">
       <UniqueIdentifier>{1446b403-4a24-44a3-9135-417b0b1a64f6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Objects\Map">
-      <UniqueIdentifier>{bd0e45c8-3444-4f57-9a92-94df675f2171}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Objects\Player\PlayerAnimation">
       <UniqueIdentifier>{45d5996c-7165-4546-bf34-f79587b1afae}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Objects\Enemy\EnemyAnimation">
       <UniqueIdentifier>{acc9666e-c88a-44c8-b356-ef8f82a9def1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Objects\Collider">
-      <UniqueIdentifier>{38f5ed5b-7341-437a-80e1-02f334bbf03a}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\NonObjects">
       <UniqueIdentifier>{d414d26d-31e4-4b2f-bbcc-b87bd10a9786}</UniqueIdentifier>
@@ -47,17 +41,23 @@
     <Filter Include="ソース ファイル\NonObjects\Camera">
       <UniqueIdentifier>{2b30ddc1-67d5-4b88-97c3-440b5ba87b69}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\NonObjects\NonObjectsFactory">
-      <UniqueIdentifier>{c32d9ff1-ae43-44f0-8444-3f2e86bf2871}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\NonObjects\NonObjectsManager">
-      <UniqueIdentifier>{96770eaf-472d-45de-a004-1aa151012b38}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Objects\Collision">
-      <UniqueIdentifier>{bb23fb94-e618-4c69-9db3-97e0f244504d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Objects\Goal">
       <UniqueIdentifier>{7100ef8a-b2e2-4150-a88a-3937389dbc97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NonObjects\Collision">
+      <UniqueIdentifier>{bb23fb94-e618-4c69-9db3-97e0f244504d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NonObjects\Collider">
+      <UniqueIdentifier>{38f5ed5b-7341-437a-80e1-02f334bbf03a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Objects\Stage">
+      <UniqueIdentifier>{bd0e45c8-3444-4f57-9a92-94df675f2171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NonObjects\SystemObjectManager">
+      <UniqueIdentifier>{96770eaf-472d-45de-a004-1aa151012b38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NonObjects\SystemObjectFactory">
+      <UniqueIdentifier>{c32d9ff1-ae43-44f0-8444-3f2e86bf2871}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -103,8 +103,8 @@
     <ClCompile Include="Scripts\EnemyAnimation.cpp">
       <Filter>ソース ファイル\Objects\Enemy\EnemyAnimation</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\Map.cpp">
-      <Filter>ソース ファイル\Objects\Map</Filter>
+    <ClCompile Include="Scripts\Stage.cpp">
+      <Filter>ソース ファイル\Objects\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\Camera.cpp">
       <Filter>ソース ファイル\NonObjects\Camera</Filter>
@@ -112,17 +112,17 @@
     <ClCompile Include="Scripts\Objects.cpp">
       <Filter>ソース ファイル\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\NonObjectsManager.cpp">
-      <Filter>ソース ファイル\NonObjects\NonObjectsManager</Filter>
+    <ClCompile Include="Scripts\SystemObjectManager.cpp">
+      <Filter>ソース ファイル\NonObjects\SystemObjectManager</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\NonObjectsFactory.cpp">
-      <Filter>ソース ファイル\NonObjects\NonObjectsFactory</Filter>
+    <ClCompile Include="Scripts\SystemObjectFactory.cpp">
+      <Filter>ソース ファイル\NonObjects\SystemObjectFactory</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\Move.cpp">
       <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\Collision.cpp">
-      <Filter>ソース ファイル\Objects\Collision</Filter>
+      <Filter>ソース ファイル\NonObjects\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\Goal.cpp">
       <Filter>ソース ファイル\Objects\Goal</Filter>
@@ -174,29 +174,29 @@
     <ClInclude Include="Scripts\Objects.h">
       <Filter>ソース ファイル\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\Map.h">
-      <Filter>ソース ファイル\Objects\Map</Filter>
+    <ClInclude Include="Scripts\Stage.h">
+      <Filter>ソース ファイル\Objects\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Collider.h">
-      <Filter>ソース ファイル\Objects\Collider</Filter>
+      <Filter>ソース ファイル\NonObjects\Collider</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Camera.h">
       <Filter>ソース ファイル\NonObjects\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\NonObjects.h">
+    <ClInclude Include="Scripts\SystemObject.h">
       <Filter>ソース ファイル\NonObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\NonObjectsManager.h">
-      <Filter>ソース ファイル\NonObjects\NonObjectsManager</Filter>
+    <ClInclude Include="Scripts\SystemObjectManager.h">
+      <Filter>ソース ファイル\NonObjects\SystemObjectManager</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\NonObjectsFactory.h">
-      <Filter>ソース ファイル\NonObjects\NonObjectsFactory</Filter>
+    <ClInclude Include="Scripts\SystemObjectFactory.h">
+      <Filter>ソース ファイル\NonObjects\SystemObjectFactory</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Move.h">
       <Filter>ソース ファイル\Objects\Enemy\EnemyState</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Collision.h">
-      <Filter>ソース ファイル\Objects\Collision</Filter>
+      <Filter>ソース ファイル\NonObjects\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Goal.h">
       <Filter>ソース ファイル\Objects\Goal</Filter>

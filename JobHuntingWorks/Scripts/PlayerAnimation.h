@@ -9,7 +9,7 @@
 class PlayerAnimation
 {
 private:
-	PlayerAnimation(Objects* player_)
+	PlayerAnimation(Object* player_)
 		:player(player_)
 		, playerAnimationKind(PlayerAnimationKind::PlayerIdle)
 		, animTimer(0.0f)
@@ -20,7 +20,7 @@ public:
 	~PlayerAnimation()
 	{
 	}
-	static PlayerAnimation* Instance(Objects* player_)//PlayerAnimationのインスタンス
+	static PlayerAnimation* Instance(Object* player_)//PlayerAnimationのインスタンス
 	{
 		static PlayerAnimation pInstance(player_);
 		return &pInstance;
@@ -56,7 +56,7 @@ private:
 		{6,0},														//ダメージモーションの情報
 	};
 private:
-	Objects* player;											//Player情報
+	Object* player;											//Player情報
 	PlayerAnimationKind playerAnimationKind;		//PlayerAnimationの種類
 	float animTimer;											//アニメーションの時間
 };

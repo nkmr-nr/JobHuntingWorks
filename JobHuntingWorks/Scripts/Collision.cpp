@@ -13,11 +13,6 @@ void Collision::Update()
 {
 }
 
-void Collision::Draw()
-{
-
-}
-
 bool Collision::OnCollisionRectAndRect()
 {
 	VECTOR vec = VSub(rectInfo01->pos, rectInfo02->pos);
@@ -37,7 +32,7 @@ bool Collision::OnCollisionRectAndRect()
 	return false;
 }
 
-bool Collision::Intersects(const OBBCollider& obb, const RectInfomation& rect)
+bool Collision::Intersects(const OBBCollider& obb, const RectCollider& rect)
 {
 	OBBCollider rectOBB = ConvertToOBBCollider(rect);
 
@@ -48,7 +43,7 @@ bool Collision::Intersects(const OBBCollider& obb, const RectInfomation& rect)
 	return IntersectsOBB(obb, rectOBB);
 }
 
-OBBCollider Collision::ConvertToOBBCollider(const RectInfomation& rect)
+OBBCollider Collision::ConvertToOBBCollider(const RectCollider& rect)
 {
 
 	OBBCollider obb = { VGet(200.0f, 30.0f, 30.0f), VGet(-100.0f, 10.0f, 0.0f) };
