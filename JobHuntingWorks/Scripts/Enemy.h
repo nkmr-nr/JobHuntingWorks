@@ -21,7 +21,7 @@ public:
 		,enemyAnim(EnemyAnimation::Instance(this))
 		,player(player_)
 		,moveVec(VGet(0,0,0))
-		,rectCollider(pos,scale)
+		,rectCollider(&pos,&scale)
 	{
 
 	}

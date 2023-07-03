@@ -15,12 +15,6 @@ struct RectCollider
 		, rectSize(size_ != nullptr ? *size_ : VGet(0, 0, 0))
 	{
 	}
-	RectCollider(float posX_, float posY_, float posZ_, float sizeX_, float sizeY_, float sizeZ_)
-		:pos(VGet(posX_, posY_, posZ_))
-		, rectSize(VGet(sizeX_, sizeY_, sizeZ_))
-	{
-
-	}
 	VECTOR pos;								//ポジション
 	VECTOR rectSize;						//サイズ
 };
