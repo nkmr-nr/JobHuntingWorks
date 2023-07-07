@@ -27,7 +27,6 @@ void TitleScene::Init()
 
 void TitleScene::Update()
 {
-	Message();
 	if (CheckHitKey(KEY_INPUT_SPACE))
 	{
 		sceneType = SceneType::Finish;
@@ -36,7 +35,7 @@ void TitleScene::Update()
 
 void TitleScene::Draw()
 {
-	
+	Message();
 }
 
 void TitleScene::Finish()

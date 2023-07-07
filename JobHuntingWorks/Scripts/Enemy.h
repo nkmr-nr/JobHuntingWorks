@@ -56,7 +56,6 @@ public:
 	{
 		return rotateDegree;
 	}
-
 	RectCollider rectCollider;
 private:
 	StateBase* state;											//Enemy‚Ìó‘Ô

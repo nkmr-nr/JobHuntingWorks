@@ -37,6 +37,11 @@ public:
 	void Update()override;
 	void UpdateMatrix();
 	void Draw()override;
+	bool Is_Active(bool isActive_)
+	{
+		isActive = isActive_;
+		return isActive;
+	}
 	OBBCollider collider;				//コライダー
 private:
 	int isAttacking;						//攻撃中かどうか

@@ -13,7 +13,7 @@ void Collision::Update()
 {
     if (CheckCollision(enemy->rectCollider, player->collider) == true)
     {
-        printf("a");
+        player->Is_Active(false);
     }
 }
 

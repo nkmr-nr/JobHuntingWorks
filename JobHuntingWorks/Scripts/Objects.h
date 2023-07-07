@@ -33,7 +33,7 @@ public:
 	{
 		return rotateDegree;
 	}
-	VECTOR GetScale()
+	VECTOR GetScale()			//ƒ‚ƒfƒ‹‚Ì‘å‚«‚³
 	{
 		return scale;
 	}

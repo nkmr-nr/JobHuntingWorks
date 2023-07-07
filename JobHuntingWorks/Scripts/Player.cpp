@@ -47,10 +47,10 @@ void Player::Update()
 	{
 		rotateDegree.y -= rotateSpeed;
 	}
-	// ワールド行列の更新
-	UpdateMatrix();
 	//プレイヤーアニメーションの更新
 	playerAnim->Update();
+	// ワールド行列の更新
+	UpdateMatrix();
 	//ステージとの当たり判定
 	OnCollisionStage();
 }

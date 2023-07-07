@@ -47,12 +47,11 @@ void ObjectsManager::Draw()
 
 void ObjectsManager::DeleteOnes()
 {
-	/*
-	for (auto itr = objects.begin(); itr != objects.end(); itr++)
+	for (auto itr = objects.begin(); itr != objects.end(); )
 	{
 		if ((*itr)->IsActive() == false)
 		{
-			delete(*itr);
+			delete (*itr);
 			itr = objects.erase(itr);
 		}
 		else
@@ -60,17 +59,15 @@ void ObjectsManager::DeleteOnes()
 			itr++;
 		}
 	}
-	*/
 }
 
 void ObjectsManager::DeleteAll()
 {
-	/*
-		for (auto itr = objects.begin(); itr != objects.end(); itr++)
+	for (auto itr = objects.begin(); itr != objects.end(); )
 	{
-		delete(*itr);
+		delete (*itr);
 		itr = objects.erase(itr);
 	}
+
 	objects.clear();
-	*/
 }

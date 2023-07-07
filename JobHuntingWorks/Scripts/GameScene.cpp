@@ -33,7 +33,7 @@ void GameScene::LatestSceneType()
 
 void GameScene::Init()
 {
-	Player* playerInstance = ObjectsFactory::Instance()->CreatePlayer(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0.4f, 0.4f, 0.4f), -1, -1, 10);
+	Player* playerInstance = ObjectsFactory::Instance()->CreatePlayer(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0.1f, 0.1f, 0.1f), -1, -1, 10);
 	Enemy* enemyInstance = ObjectsFactory::Instance()->CreateEnemy(VGet(0, -40, 0), VGet(0, 0, 0), VGet(0.5f, 0.5f, 0.5f), -1, -1, 0, playerInstance);
 
 	ObjectsManager::Instance()->Entry(playerInstance);

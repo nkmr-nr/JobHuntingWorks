@@ -24,6 +24,7 @@ void Enemy::Update()
 		state = result;
 		counter = 0;
 	}
+	rectCollider = { &pos,&scale };
 	//EnemyAnimationの更新
 	enemyAnim->Update();
 	//ステージの当たり判定
