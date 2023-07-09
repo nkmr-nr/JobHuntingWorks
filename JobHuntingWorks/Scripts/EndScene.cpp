@@ -35,5 +35,8 @@ void EndScene::Draw()
 
 void EndScene::Finish()
 {
-	sceneType = SceneType::Init;
+	if (CheckHitKey(KEY_INPUT_SPACE))
+	{
+		DxLib_End();
+	}
 }
