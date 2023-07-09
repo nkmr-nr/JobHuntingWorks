@@ -21,7 +21,8 @@ public:
 		,enemyAnim(EnemyAnimation::Instance(this))
 		,player(player_)
 		,moveVec(VGet(0,0,0))
-		,rectCollider(&pos,&scale)
+		, hitBox(VGet(80,80,80))
+		,rectCollider(&pos,&hitBox)
 	{
 
 	}
@@ -63,6 +64,7 @@ private:
 	EnemyAnimation* enemyAnim;						//Enemyのアニメーション
 	Object* player;											//索敵用
 	VECTOR moveVec;										//移動ベクトル
+	VECTOR hitBox;
 };
 
 #endif//#define ENEMMY_H_

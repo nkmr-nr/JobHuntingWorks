@@ -8,7 +8,7 @@ SystemObject* SystemObjectFactory::CreateCamera(Object* target)
 	return Camera::Instance(target);
 }
 
-SystemObject* SystemObjectFactory::CreateCollision(Player* player_, Enemy* enemy_)
+Collision* SystemObjectFactory::CreateCollision(Player* player_, Enemy* enemy_)
 {
 	return  Collision::Instance(player_,enemy_);
 }

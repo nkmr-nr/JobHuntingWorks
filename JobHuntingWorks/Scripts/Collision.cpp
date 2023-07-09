@@ -11,10 +11,6 @@ void Collision::Init()
 
 void Collision::Update()
 {
-    if (CheckCollision(enemy->rectCollider, player->collider) == true)
-    {
-        player->Is_Active(false);
-    }
 }
 
 bool Collision::CheckCollision(RectCollider& rect, OBBCollider& obb)

@@ -2,15 +2,7 @@
 #include "GameScene.h"
 #include "SceneBase.h"
 
-#include"ObjectsFactory.h"
-#include"ObjectsManager.h"
-#include"Objects.h"
-
-#include"SystemObject.h"
-#include"SystemObjectManager.h"
-#include"SystemObjectFactory.h"
-
-#include"Camera.h"
+#include"ManagerAdministrator.h"
 
 void GameScene::LatestSceneType()
 {
@@ -33,37 +25,29 @@ void GameScene::LatestSceneType()
 
 void GameScene::Init()
 {
-	Player* playerInstance = ObjectsFactory::Instance()->CreatePlayer(VGet(0, 0, 0), VGet(0, 0, 0), VGet(0.1f, 0.1f, 0.1f), -1, -1, 10);
-	Enemy* enemyInstance = ObjectsFactory::Instance()->CreateEnemy(VGet(0, -40, 0), VGet(0, 0, 0), VGet(0.5f, 0.5f, 0.5f), -1, -1, 0, playerInstance);
-
-	ObjectsManager::Instance()->Entry(playerInstance);
-	ObjectsManager::Instance()->Entry(enemyInstance);
-	ObjectsManager::Instance()->Entry(ObjectsFactory::Instance()->CreateStage(VGet(0, 0, 0), VGet(0, 0, 0), VGet(1, 1, 1), -1));
-	ObjectsManager::Instance()->Entry(ObjectsFactory::Instance()->CreateGoal(VGet(1000, 50, 1000), VGet(0, 0, 0), VGet(50, 50, 50), -1, -1, 0));
-
-	ObjectsManager::Instance()->Init();
-
-	SystemObjectManager::Instance()->Entry(SystemObjectFactory::Instance()->CreateCamera(playerInstance));
-	SystemObjectManager::Instance()->Entry(SystemObjectFactory::Instance()->CreateCollision(playerInstance, enemyInstance));
-	SystemObjectManager::Instance()->Init();
+	ManagerAdministrator::Instance()->Init();
 
 	sceneType = SceneType::Update;
 }
 
 void GameScene::Update()
 {
-	ObjectsManager::Instance()->Update();
-	SystemObjectManager::Instance()->Update();
-	ObjectsManager::Instance()->DeleteOnes();
+	ManagerAdministrator::Instance()->Update();
+	if (ManagerAdministrator::Instance()->IsDead() == true)
+	{
+		sceneType = SceneType::Finish;
+	}
 }
 
 void GameScene::Draw()
 {
-	ObjectsManager::Instance()->Draw();
+	ManagerAdministrator::Instance()->Draw();
 }
 
 void GameScene::Finish()
 {
-	ObjectsManager::Instance()->DeleteAll();
+	ManagerAdministrator::Instance()->Finish();
 	Loading();
+	sceneKind = SceneKind::End;
+	sceneType = SceneType::Init;
 }

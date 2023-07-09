@@ -16,7 +16,10 @@ void Camera::Update()
 	{
 		target_pos = targetObj->GetPos();
 	}
-
+	else
+	{
+		pos = VGet(0, 0, 0);
+	}
 	if (CheckHitKey(KEY_INPUT_SPACE))
 	{
 		isAttacking = true;

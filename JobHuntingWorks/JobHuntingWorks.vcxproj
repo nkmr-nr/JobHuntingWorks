@@ -27,6 +27,7 @@
     <ClCompile Include="Scripts\EnemyAnimation.cpp" />
     <ClCompile Include="Scripts\GameScene.cpp" />
     <ClCompile Include="Scripts\Goal.cpp" />
+    <ClCompile Include="Scripts\ManagerAdministrator.cpp" />
     <ClCompile Include="Scripts\Stage.cpp" />
     <ClCompile Include="Scripts\Move.cpp" />
     <ClCompile Include="Scripts\SystemObjectFactory.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="Scripts\EnemyAnimation.h" />
     <ClInclude Include="Scripts\GameScene.h" />
     <ClInclude Include="Scripts\Goal.h" />
+    <ClInclude Include="Scripts\ManagerAdministrator.h" />
     <ClInclude Include="Scripts\Stage.h" />
     <ClInclude Include="Scripts\Move.h" />
     <ClInclude Include="Scripts\SystemObject.h" />
